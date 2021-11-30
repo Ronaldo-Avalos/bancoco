@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+
+    <title>Bancoco</title>
+    
+    <!-- styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css" rel="stylesheet">
+	<link href="../../css/styles.css" rel="stylesheet">
+	<link href="transferStyle.css" rel="stylesheet">
+	
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbarExample">
+    
+    <!-- Nav -->
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand logo-image" href="index.html"><img src="../../images/logo.svg" alt="alternative"></a> 
+
+            <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+		</div> 
+    </nav> <!--Fin de Nav -->
+    
+
+      
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="transfer-form mt-3 mb-3">
+    		<div class="container">
+			  <div class="row">
+				<div class="transfer-advise-panel col-md-6 d-none d-md-block">
+					<h1 class="text-center pt-3">Tranferencia<br> bancaria</h1>
+				</div>
+				<div class="form-panel col-md-6">
+					<form action="#" class="p-4 text-white">
+					  <div class="form-group">
+						  <label for="name"><i class="fas fa-user"></i> Cuenta de origen</label>
+						  <input type="text" class="form-control">
+					  </div>
+					  <div class="form-group">
+						  <label for="email"><i class="fas fa-address-card"></i> Cuenta del destinatario</label>
+						  <input type="text" class="form-control">
+					  </div>
+					  <div class="form-group">
+						  <label for="pwd"><i class="fas fa-money-check-alt"></i> Importe</label>
+						  <input type="text" class="form-control">
+					  </div>
+					  <div class="form-group">
+						  <label for="pwd"><i class="fas fa-comment"></i> Concepto</label>
+						  <input type="text" class="form-control">
+					  </div>
+					  <button type="submit" class="btn btn-warning mb-3 mt-3 float-right">Transferir</button>
+					</form>
+				</div>
+			  </div>
+		  </div>
+	  </div>
+    </header> 
+    <!-- Scripts -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/swiper.min.js"></script> 
+    <script src="js/scripts.js"></script>
+</body>
+</html>

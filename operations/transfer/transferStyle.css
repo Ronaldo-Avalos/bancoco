@@ -1,0 +1,32 @@
+.transfer-form h1 {
+    font-size: 42px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 150px 0px;
+    line-height: 60px;
+}
+.transfer-form .form-control {
+    border: none;
+    background: none;
+    border-bottom: 1px solid #ffc107;
+    border-radius: 0px !important;
+    color: #fff;
+}
+.transfer-form .form-control:focus,
+.transfer-form .form-control:hover{
+  border:none;
+  margin: 0 auto;
+  background: none;
+  box-shadow: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.transfer-form .transfer-advise-panel {
+    background-color: #F2CB05;
+	color: #FFFFFF;
+}
+
+.transfer-form .form-panel {
+    background-color: #010626;
+}
+
