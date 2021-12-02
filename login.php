@@ -15,7 +15,7 @@
         <div class="container">
 
             <!-- Logo -->
-            <a class="navbar-brand logo-image" href="../index.php"><img src="../images/logo.svg" alt="alternative"></a> 
+            <a class="navbar-brand logo-image" href="../index.php"><img src="images/logo.svg" alt="alternative"></a> 
 
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
