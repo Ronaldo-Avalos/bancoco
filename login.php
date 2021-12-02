@@ -5,8 +5,8 @@
     <title>Acceso</title>
     <link rel="stylesheet" href="css/style_login.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
   </head>
   <body>
     
@@ -20,11 +20,11 @@
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ms-auto navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php #contacto">Tengo un problema</a>
+                        <a class="nav-link" href="index.php #contacto">Tengo un problema</a>
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a  class="btn-solid-sm" href="../index.php">Regresar</a>
+                    <a  class="btn-solid-sm" href="index.php">Regresar</a>
                 </span>
             </div> 
         </div>
@@ -50,7 +50,7 @@
         <input type="submit" value="Entrar" class="btn-solid-sm">
 
         <div class="signup_link">
-          No tienes cuenta? <a href="../index.php">Registrate</a>
+          No tienes cuenta? <a href="index.php">Registrate</a>
         </div>
       </form>
     </div>
