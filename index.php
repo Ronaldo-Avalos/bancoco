@@ -44,12 +44,12 @@
                             <li><div class="dropdown-divider"></div></li>
                             <li><a class="dropdown-item" href="# ">Apertura de cuenta</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a target="_blank" class="dropdown-item" href="Login/login.php">Estado de cuenta</a></li>
+                            <li><a target="_blank" class="dropdown-item" href="login.php">Estado de cuenta</a></li>
                         </ul>
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a  target="" class="btn-solid-sm" href="Login/login.php">Acceso</a>
+                    <a  target="" class="btn-solid-sm" href="login.php">Acceso</a>
                 </span>
             </div> 
         </div>
