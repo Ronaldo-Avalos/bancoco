@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
+  /*background: linear-gradient(110 deg,#030973, #010626);
+ */
+ background: url(../images/header-background1.jpg);
+ height: 100vh;
+  overflow: hidden;
+}
+.usuario{
+    position: absolute;
+    top: 52%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    padding: 20%;
+  }
+
+.usuario h1{
+    position: absolute;
+    top: 5%;
+    left: 5%; 
+    color: #030973;
+  }
+
+.usuario .saldo{
+    font-size: 20px;
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    color: #030973;
+}
+
+.usuario .usu-btn{
+	padding: 1rem 1.5rem 1rem 1.5rem;
+	border: 1px solid #010626;
+	border-radius: 10px;
+	background-color: #010626;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 0.875rem;
+	line-height: 0;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+
+.usuario .usu-btn:hover{
+    background-color: transparent;
+	color: #030973; 
+	text-decoration: none;
+}
+
+
+
+
+/**********************/
+/*     Nav     */
+/**********************/
+.navbar {
+    padding-top: 1.75rem;
+    background-color: #fcfafb;
+    box-shadow: none;
+    transition: all 0.2s;
+  }
+  
+  .navbar.top-nav-collapse {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #fcfafb;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .offcanvas-collapse {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    width: auto;
+    padding-right: 0;
+    padding-left: 0;
+    background-color: transparent;
+    overflow-y: visible;
+    visibility: visible;
+  }
+  
+  .offcanvas-collapse.open {
+    -webkit-transform: none;
+    transform: none;
+  }
+  
+  .navbar .navbar-nav {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .navbar .nav-item .nav-link {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+  
+  .navbar .dropdown-menu {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.08);
+  }
+  
+  .navbar .dropdown-divider {
+    width: 90%;
+  }
+  
+  .navbar .nav-item .btn-solid-sm {
+    margin-top: 0;
+    margin-left: 1rem;
+  }
+  
+  
+  .navbar {
+  background-color: #fcfafb;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .navbar .navbar-brand {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  }
+  
+  .navbar .logo-image img {
+    width: 126px;
+  height: 32px;
+  }
+  
+  .navbar .logo-text {
+  color: #223150;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 1rem;
+  text-decoration: none;
+  }
