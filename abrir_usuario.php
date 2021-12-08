@@ -52,8 +52,8 @@
 
     if ($valida == true){
 		//Se crean las variables para meter los datos
-        //$con = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
-		$Pcon = new mysqli("localhost","root","","bancoco") or die ("No se encuentra la base de datos");;
+        $Pcon = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
+		//$Pcon = new mysqli("localhost","root","","bancoco") or die ("No se encuentra la base de datos");;
         $Pnombres = $_POST['name']; 
 		$Psexo = $_POST['sexo'];
 		settype($Psexo, "integer");
@@ -67,23 +67,15 @@
         $Ptelefono = $_POST['telefono'];
         $Psexo = $_POST['sexo'];
 
-        //$sql = "CALL crear_usuario($usuario, $pass, $nombres, $primer_apellido, $segundo_apellido, $telefono, $sexo, $fecha_nacimiento, $correo);";
-
 		//Se envian los datos con la funcion crear_usuario()
 		$stmt = mysqli_prepare($Pcon, "CALL crear_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, '')") or die(mysqli_error());
 		mysqli_stmt_bind_param($stmt, 'ssssissss', $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo, $Pusuario, $Ppass);
 		mysqli_stmt_execute($stmt) or die("Error de envio de datos.");
 
-		//mysqli_query($Pcon, "CALL crear_usuario($Pusuario, $Ppass, $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo,'')");
-		//echo("Error description: ". $Pcon->error);
-
-		//if(!$Pcon -> query("CALL crear_usuario($Pusuario, $Ppass, $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo,'')")){
-		//	echo("Error description: " . $Pcon->error);
-		//}
-
-		//".$Pusuario.", ".$Ppass.", ".$Pnombres.", ".$Pprimer_apellido.", ".$Psegundo_apellido.", ".$Ptelefono.", ".$Psexo.", ".$Pfecha_nacimiento.", ".$Pcorreo.")"
+		//Para errores:	echo("Error description: " . $Pcon->error);
 		
 		echo "<br><br><br><h2>El usuario se ha creado con exito</h2>";
 
 		mysqli_close($Pcon);
     }
+?>
