@@ -15,12 +15,14 @@
 	<link href="css/styles.css" rel="stylesheet">
 
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
     <!-- Nav -->
+    <!--
     <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
 
-            <!-- Logo -->
+            
             <a class="navbar-brand logo-image" href="index.php"><img src="images/logo.svg" alt="alternative"></a> 
 
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
@@ -55,11 +57,11 @@
                 </span>
             </div> 
         </div>
-    </nav> <!--Fin de Nav -->
-
+    </nav> 
+-->
     <!--Form-->
     <div class="formulario" style="text-align: center; position:fixed;">
-        <form method="POST" action="abrir_usuario.php">
+        <form method="POST" action="abrir_usuario.php" name="crar_usuario">
             <label for="name">Nombres</label><br>
             <input type="text" id="name" name="name"><br>
             <label for="ape_pat">Primer Apellido</label><br>
@@ -73,8 +75,8 @@
             <label for="telefono">Telefono</label><br>
             <input type="text" id="telefono" name="telefono"><br>
             <label for="sexo">Sexo</label><br>
-            <input type="checkbox" id="sexo" name="sexo" value=0><label for="sexohombre">Hombre</label>
-            <input type="checkbox" id="sexo" name="sexo" value=1><label for="sexomujer">Mujer</label><br>
+            <input type="radio" id="sexo" name="sexo" value="0" checked><label for="sexohombre">Hombre</label>
+            <input type="radio" id="sexo" name="sexo" value="1"><label for="sexomujer">Mujer</label><br>
             <label for="fecha">Fecha de nacimiento</label><br>
             <input type="date" name="fecha" id="fecha"><br>
             <label for="correo">Correo electronico</label><br>

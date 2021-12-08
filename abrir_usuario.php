@@ -1,6 +1,21 @@
 <?php
+
+	header('refresh:5, url=crear_usuario.html');
+
+	$valida = true;
+
     if(empty($_POST['name'])){
 		echo "<b>No se especifico Nombre</b><br>";
+		$valida = false;
+	}
+
+	if(empty($_POST['ape_mat'])){
+		echo "<b>No se especifico Segundo apellido</b><br>";
+		$valida = false;
+	}
+
+	if(empty($_POST['telefono'])){
+		echo "<b>No se especifico Numero de telefono</b><br>";
 		$valida = false;
 	}
 
@@ -34,17 +49,41 @@
         $valida = false;
     }
 
-    if ($valida == true){
-        $con = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
-        $nombres = $_POST(name);
-        $primer_apellido = $_POST(ape_pat);
-        $segundo_apellido = $_POST(ape_mat);
-        $usuario = $_POST(usuario);
-        $pass = $_POST(contra1);
-        $correo = $_POST(correo);
-        $fecha_nacimiento = $_POST(fecha);
-        $telefono = $_POST(telefono);
-        $sexo = $_POST(sexo);
 
-        $sql = "CALL "
+    if ($valida == true){
+		//Se crean las variables para meter los datos
+        //$con = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
+		$Pcon = new mysqli("localhost","root","","bancoco") or die ("No se encuentra la base de datos");;
+        $Pnombres = $_POST['name']; 
+		$Psexo = $_POST['sexo'];
+		settype($Psexo, "integer");
+        $Pprimer_apellido = $_POST['ape_pat'];
+        $Psegundo_apellido = $_POST['ape_mat'];
+        $Pusuario = $_POST['usuario'];
+        $Ppass = $_POST['contra1'];
+        $Pcorreo = $_POST['correo'];
+        $Pfecha_nacimiento = $_POST['fecha'];
+		settype($Pfecha_nacimiento, "string");
+        $Ptelefono = $_POST['telefono'];
+        $Psexo = $_POST['sexo'];
+
+        //$sql = "CALL crear_usuario($usuario, $pass, $nombres, $primer_apellido, $segundo_apellido, $telefono, $sexo, $fecha_nacimiento, $correo);";
+
+		//Se envian los datos con la funcion crear_usuario()
+		$stmt = mysqli_prepare($Pcon, "CALL crear_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, '')") or die(mysqli_error());
+		mysqli_stmt_bind_param($stmt, 'ssssissss', $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo, $Pusuario, $Ppass);
+		mysqli_stmt_execute($stmt) or die("Error de envio de datos.");
+
+		//mysqli_query($Pcon, "CALL crear_usuario($Pusuario, $Ppass, $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo,'')");
+		//echo("Error description: ". $Pcon->error);
+
+		//if(!$Pcon -> query("CALL crear_usuario($Pusuario, $Ppass, $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo,'')")){
+		//	echo("Error description: " . $Pcon->error);
+		//}
+
+		//".$Pusuario.", ".$Ppass.", ".$Pnombres.", ".$Pprimer_apellido.", ".$Psegundo_apellido.", ".$Ptelefono.", ".$Psexo.", ".$Pfecha_nacimiento.", ".$Pcorreo.")"
+		
+		echo "<br><br><br><h2>El usuario se ha creado con exito</h2>";
+
+		mysqli_close($Pcon);
     }
