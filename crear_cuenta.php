@@ -12,7 +12,7 @@
         exit();
     }
 
-    header('refresh:5, url=dashboard.html');
+    header('refresh:5, url=user_dashboard.html');
 
     //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
     $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
