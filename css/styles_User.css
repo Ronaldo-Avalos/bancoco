@@ -19,81 +19,95 @@ body{
     background: url(/images/header-background1.jpg);
 }
 
-.grid-container > * {
-    /* box-shadow: -1px 1px 7px 0px #000075; */
 
-    padding: 10px;
+.grid-container > * {
+  /* box-shadow: -1px 1px 7px 0px #000075; */
+  padding: 10px;
 }
 /* .header{
-    grid-area: header;
+  grid-area: header;
 } */
 .navbar{
-    grid-area: navbar;
-  
+  grid-area: navbar;
+
 }
 .main{
-    grid-area: main;
-    /* background-color: rgb(253, 255, 127); */
+  grid-area: main;
 }
-.sidebar{
-    grid-area: sidebar;
-    
+.sidebar {
+  grid-area: sidebar;
 }
 .footer{
-    grid-area: footer;
+  grid-area: footer;
 
 }
 
 html{
-    height: 100%;
+  height: 100%;
 
 }
 
 .grid-container{
-    display: grid;
-    gap: 10px;
-    grid-template:  
-    "header" 100px
-    "navbar" 50px
-    "main" auto
-    "sidebar" 100px
-    "footer" 100px;
+  display: grid;
+  gap: 10px;
+  grid-template:  
+  "header" 100px
+  "navbar" 50px
+  "main" auto
+  "sidebar" 100px
+  "footer" 100px;
 }
 
 /* Diseo para tableta */
 @media (min-width: 600px){
-    .grid-container{
-        /* AJUSTAMOS EL ANCHO DE LAS COLUMNAS
-        grid-template-columns: 200px auto;
-        AJUSTAMOS EL ALTO DE LAS FILAS 100PX PARA HEADER 50PX PARA NAV, AUTO PARA SIDEBAR Y 100PX PARA FOOTER
-        grid-template-rows: 100px 50px auto 100px;
-         grid-template-areas: 
-        "header header"
-        "navbar navbar"
-        "sidebar main"
-        "footer footer"; 
- MANERA VISUAL */
-        grid-template: 
-        "header header" 100px
-        "navbar navbar" 50px
-        "sidebar main"  auto
-        "footer footer" 100px /
-         200px   auto;
-    }
+  .grid-container{
+      /* AJUSTAMOS EL ANCHO DE LAS COLUMNAS
+      grid-template-columns: 200px auto;
+      AJUSTAMOS EL ALTO DE LAS FILAS 100PX PARA HEADER 50PX PARA NAV, AUTO PARA SIDEBAR Y 100PX PARA FOOTER
+      grid-template-rows: 100px 50px auto 100px;
+       grid-template-areas: 
+      "header header"
+      "navbar navbar"
+      "sidebar main"
+      "footer footer"; 
+MANERA VISUAL */
+      grid-template: 
+      "header header" 100px
+      "navbar navbar" 50px
+      "sidebar main"  auto
+      "footer footer" 100px /
+       200px   auto;
+  }
 }
 
 /* Diseo destock*/
 @media (min-width: 900px){
-    .grid-container{
-        grid-template: 
-        "header  header  header"  100px
-        "navbar  main    sidebar" auto
-        "footer  footer  footer" 100px /
-         200px   auto     200px ;
-     
-    }
-}
+  .grid-container{
+      grid-template: 
+      "header  header  header"  100px
+      "navbar  main    sidebar" auto
+      "footer  footer  footer" 100px /
+       200px   auto     200px ;
+   
+  }
 
+
+.header {
+  height: 80px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
 
 
 .btn-solid-sm {
@@ -202,6 +216,130 @@ html{
   text-decoration: none;
   }
 
+
+
+ .main{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(10,auto) ;
+  grid-template-rows: repeat(5,1fr);
+
+ }
+
+
+
+ .saldo {
+  grid-column: 1/2;
+  grid-row: 1/4;
+  /* background-color: #010626; */
+  color: white;
+ 
+}
+
+.tabla{
+  grid-column: 2/5;
+  /* background-color: tomato; */
+  grid-row: 1/4;
+}
+
+.img{
+  grid-column: 5/11;
+  /* background-color:turquoise; */
+  grid-row: 1/4;
+}
+
+.cuenta{
+
+  width: 200px;
+  margin: 0 auto 17px;
+
+}
+.cuenta .txt{
+  margin-top: -1px;
+  margin-bottom: 1rem;
+  margin-left: 24px;
+}
+select {
+  background: transparent;
+  border: none;
+  height: 30px;
+  width: 200px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+}
+.sal{
+  background-color:#030973;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 18px;
+  border-radius: 17px;
+}
+.botones{
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 30px;
+  
+}
+.botones .btn{
+  display: inline-block;
+  border: 1px solid #030973;
+  border-radius: 9px;
+
+  color: #0e0707;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 0;
+  text-decoration: none;
+  transition: all 0.2s;
+  width: 200px;
+  padding: 18px;
+  margin: 2px 0px 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+}
+.botones .btn:hover {
+  background-color: #030973;
+  color: #fff; 
+  text-decoration: none;
+  }
+
+  .tab {
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+}
+.titulo{
+  margin-top: 80px;
+  margin-left: 200px;
+
+}
+}
+/* 
+.btn {
+  display: inline-block;
+  border: 1px solid #030973;
+  border-radius: 9px;
+  background-color: #030973;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 0;
+  text-decoration: none;
+  transition: all 0.2s;
+  margin: 0px 0px 16px;
+  width: 227px;
+  padding: 9%;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
+}
+.btn:hover {
+background-color: transparent;
+color: #030973; 
+text-decoration: none;
+} */
+/* 
   
 .saldo {
   background-color: #030973;
@@ -284,7 +422,4 @@ img{
 
 
 }
-.titulo{
-  position: relative;
-  top: -12%;
-}
+ */
