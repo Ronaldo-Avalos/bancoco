@@ -38,10 +38,10 @@
     <meta charset="utf-8"/>
     <META NAME="Author" CONTENT="Oscar Dalí Nattaniel Romero Raygoza">
     <META NAME="Rights" CONTENT="Oscar Dalí Nattaniel Romero Raygoza">
-    <META NAME="Description" CONTENT="Esta es la pagina de presupuesto.">
+    <META NAME="Description" CONTENT="Esta es la pagina de Retiro de efectivo.">
     <META NAME="Keywords" CONTENT="javascript, curso, diseño web, programacion, México">
-    <META NAME="Date" CONTENT="Monday, 08 November, 2021">
-    <title> Apertura de cuenta </title>
+    <META NAME="Date" CONTENT="Monday, 09 December, 2021">
+    <title> Retiro de efectivo </title>
     <!-- styles -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -52,7 +52,7 @@
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
  
     <div class="center"> <!--Inicio del formulario para transferir-->
-    
+    <h1>Realizar retiro</h1>
         <form method="post" action="retirar.php">
             <label for="origen">Cuenta de origen: </label><br>
             <!-- Aqui se ponen las cuentas del usuario desde la variable raw-->
