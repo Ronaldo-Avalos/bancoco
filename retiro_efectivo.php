@@ -1,3 +1,37 @@
+<?php
+    session_start();
+    
+    $link = "login.php";
+    //Se verifica que el usuario este con sesion iniciada
+    if($_SESSION["usuario"] == NULL){
+        echo "<b>Es necesario iniciar sesion.</b><br/>";
+        ?> <html>
+            <button type="button" onclick="location.href='login.php'">Iniciar sesion</button>
+            </html>
+        <?php
+        exit();
+    }
+
+    $Pid_usuario = $_SESSION["usuario"];
+
+    // Se hace conexion con la base de datos
+    //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
+    $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb") or die("Error de conexion");
+
+    //funcion que saca las cuentas del usuario
+    function sacar_cuentas($Pid_usuario){
+        global $conect, $consulta;
+        //hace consulta de la cuenta
+		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = '.$Pid_usuario;
+		//returna el resultado de select
+        return $conect->query($sql);
+    }
+
+    //se sacan los resultados de la consulta
+    $resultado = sacar_cuentas($Pid_usuario);
+	
+?>
+
 <!DOCTYPE html>
 <HTML>
 <head>
@@ -17,10 +51,11 @@
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
     <!-- Nav -->
+    <!--
     <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
         <div class="container">
 
-            <!-- Logo -->
+          
             <a class="navbar-brand logo-image" href="index.php"><img src="images/logo.svg" alt="alternative"></a> 
 
             <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
@@ -55,12 +90,21 @@
                 </span>
             </div> 
         </div>
-    </nav> <!--Fin de Nav -->
+    </nav>--> <!--Fin de Nav -->
 
     <div> <!--Inicio del formulario para transferir-->
         <form method="post" action="retirar.php">
             <label for="origen">Cuenta de origen: </label><br>
-            <input name="origen" type="text" id="origen"><br>
+            <!-- Aqui se ponen las cuentas del usuario desde la variable raw-->
+            <select name="origen" id="origen">
+                <!--Se corre un while para imprimir las cuentas-->
+                <?php 
+                    while($row = $resultado->fetch_assoc()){ 
+                ?>
+                    <!--Imprime los resultados de no_cuenta como valor en el select y como texto para que el usuario lo vea-->
+                    <option value=<?php echo $row['no_cuenta']; ?> > <?php echo($row['no_cuenta']); ?> </option>
+                    <?php } ?>
+            </select><br>
             <label for="dinero">Cantidad para retirar: </label><br>
             <input type="number" name="dinero" id="dinero"><br>
             <label for="nip">Ingresa tu NIP: </label><br>
