@@ -1,27 +1,49 @@
 <?php
 
     session_start();
-    $link = "login.php";
+    $_SESSION['iduser'] = 0;
 
-    if($_SESSION["iduser"] == NULL){
-        echo "<b>Es necesario iniciar sesion.</b><br/>";
-        ?> <html>
-            <button type="button" onclick="location.href='login.php'">Iniciar sesion</button>
-            </html>
-        <?php
-        exit();
-    }
+    if(isset($_SESSION['iduser'])){
+		if ($_SESSION['iduser']==NULL){
+			header('refresh:5, url=login.php');
+            echo "<h2>Es necesario iniciar sesion.</h2><br/>";
+            exit();
+		}
+	}
 
     header('refresh:5, url=user_dashboard.html');
 
-    //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
-    $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
+    $conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
+    //$conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
 
     $unico = false;
     $numero = "";
     $consulta = " ";
 
-    function revisar($numero){
+    function revisar_cuentas($Pid_cliente){
+        //hace conexion a la bd
+        global $conect, $consulta;
+        //hace consulta de la cuenta
+		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = '.$Pid_cliente;
+		//returna el resultado de select
+        return $conect->query($sql);
+    }
+
+    //Se revisan la cantidad de cuentas para que el usuario solo pueda tener 4
+    $resultado = revisar_cuentas($_SESSION['iduser']);
+    $cont_cuentas = 0;
+
+    while ($row = $resultado->fetch_assoc()){
+        if($row['activa'] == 1){
+            $cont_cuentas ++;
+        }
+    }
+    if($cont_cuentas >= 4){
+        echo "<h2>Solo se pueden tener 4 cuentas activas.</h2>";
+        exit();
+    }
+
+    function revisar_unico($numero){
         //hace conexion a la bd
         global $conect, $consulta;
         //hace consulta de la cuenta
@@ -34,7 +56,7 @@
         //crea el numero random
         $numero = random_int(10000000,99999999);
         //revisa que el numero no se haya escrito antes
-        $busqueda = revisar($numero);
+        $busqueda = revisar_unico($numero);
         $row = $busqueda->fetch_assoc();
         //si no se regresa fila de registro la cuenta es unica.
         if($row==NULL){
