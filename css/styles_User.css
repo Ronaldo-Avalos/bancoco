@@ -16,7 +16,7 @@ body{
     font-size: 1.2em;
     min-height: 100%;
     padding: 90px 20px 0;
-    background: url(/images/header-background1.jpg);
+    background: url("../images/header-background1.jpg");
 }
 
 
@@ -222,8 +222,7 @@ MANERA VISUAL */
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(10,auto) ;
-  grid-template-rows: repeat(5,1fr);
-
+  grid-template-rows: repeat(3,1fr);
  }
 
 

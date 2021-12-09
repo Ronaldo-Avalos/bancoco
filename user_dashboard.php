@@ -44,7 +44,7 @@
     <div class="titulo">
       <h1 id="greeting">¡Bienvenido!</h1>  <!--CAMBIAR USUARIO-->
 		
-      <h6>Hola! desde aquí puedes realizar tus operaciones</h6>  
+      <h6>¡Hola! desde aquí puedes realizar tus operaciones</h6>  
     </div>
   </header>
   <aside class="sidebar"> </aside>
@@ -53,8 +53,10 @@
      
       <div class="saldo">
         <div class="cuenta">
-          <p class="txt" style="color: #212529;">Selecciona tu Cuenta:</p> 
-            <select id="combo_cuenta">
+          <p class="txt" style="color: #212529;">Selecciona tu Cuenta:</p>
+			<div class="row align-middle">
+			<div class="col align-middle" style="width: 70%;">
+            <select id="combo_cuenta" style="width: 100%;">
 				<?php
 
 				$sql="SELECT no_cuenta FROM cat_cuentas WHERE id_cliente=".$_SESSION['iduser'];
@@ -73,37 +75,47 @@
 				mysqli_close($con);
 				?>
             </select>
+			</div>
+			<div style="width: 30%;">
+				<a href="#" class="btn btn-outline-secondary btn-sm"><strong>+</strong></a >
+			</div>
+				</div>
         </div>
         <div class="sal">
           <h5>Saldo</h5>   <!--CAMBIAR-->
-          <p id="accountMoney"></p>  <!--CAMBIAR-->
+          <p id="accountMoney" class="money"></p>  <!--CAMBIAR-->
         </div>
               
       <div class="botones">
         <a href="#" class="btn">Transferencia</a >
         <a href="#" class="btn">Retirar en efectivo</a >
-        <a href="#" class="btn">Cancelar Cuenta</a >
         <a href="#" class="btn">Cambiar NIP</a >
-        <a href="#" class="btn">Crear una nueva cuenta</a >
-    </div> 
+	  </div> 
+	  <div style="width: 200px; margin: 0 auto;">  
+	  <a href="#" class="btn btn-danger" style = "width: 100%;">Cerrar Cuenta</a >
+	  </div>
   </div>
       <dv class="tabla">
         <div class="tab">
           <table class="table table-striped">
-              <thead> 
-              <th>Movimientos de la cuenta:  </th>
+		  <thead> 
+		  <th>Fecha</th>
+		  <th>Concepto</th>
+		  <th>Cargo</th>
+		  <th>Abono</th>
+		  <th>Saldo</th>
           </thead>
           <tbody>
               <tr>
-                <th scope="row">1</th>
+                <th scope="row">fecha</th>
                 <td>Movimiento</td>  <!--CAMBIAR-->
               </tr>
               <tr>
-                <th scope="row">2</th>
+                <th scope="row">fecha</th>
                 <td>Movimiento</td>  <!--CAMBIAR-->
               </tr>
               <tr>
-                <th scope="row">3</th>
+                <th scope="row">fecha</th>
                 <td >Movimiento</td>  <!--CAMBIAR-->
                 
               </tr>
@@ -114,12 +126,10 @@
 
       </dv>
       <div class="img">
-        <img src="/images/people.svg" alt="">
+        <img src="images/people.svg" alt="">
 
       </div>
 	</article> 
-
-    <footer class="footer"> </footer>
   </body>
 	
 	<script>
@@ -137,6 +147,7 @@
 			
 		};
 		
+
 		$('#combo_cuenta').change(function() {
 			$.ajax({
 				url: "lib_php/getAccountData.php",
@@ -144,9 +155,16 @@
 					account: $(this).val()
 				},
 				success: function( result ) {
-					$( "#accountMoney" ).html(result);
+					$( "#accountMoney" ).html(formatter.format(result));
 					}
 			});
+			format_number();
 		});
+		
+		const formatter = new Intl.NumberFormat('es-MX', {
+		  style: 'currency',
+		  currency: 'MXN',
+		  minimumFractionDigits: 2
+		})
 	</script>
 </html>
