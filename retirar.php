@@ -1,4 +1,7 @@
 <?php
+
+header('refresh:5, url=retiro_efectivo.php');
+
     //Se validan los datos
     $valida = true;
     if(empty($_POST['origen'])){
@@ -16,6 +19,9 @@
 		$valida = false;
 	}
 
+	if($valida == false){
+		exit();
+	}
 
 	//$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
     $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb") or die("Error de conexion.");
@@ -28,6 +34,20 @@
     $consulta = " ";
 	date_default_timezone_set('America/Mexico_City');
 	$Pfecha = date('y/m/d G:i:s');
+
+	if($Pmonto > 10000){
+		echo "<h2> La cantidad a retirar supera el limite de retiro.</h2>";
+		$valida = false;
+	}
+
+	if($Pmonto <= 0 ){
+		echo "<h2> La cantidad para retirar debe ser mayor a 0.</h2>";
+		$valida = false;
+	}
+
+	if($valida == false){
+		exit();
+	}
 
     function revisar_nip($Pcuenta_origen, $Pnip){
         //hace conexion a la bd
@@ -71,7 +91,12 @@
 		mysqli_stmt_execute($stmt);
 
 		echo "<h2>Transaccion exitosa.</h2>";
-
+		?> <html> 
+			<button type="button" onclick="location.href='user_dashboard.html'">Regresar al dashboard</button> 
+			</html>
+		<?php
 		mysqli_close($conect);
+
+		exit();
 	}
 	

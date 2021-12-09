@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['iduser'] = 3;
+    //$_SESSION['iduser'] = 6;
     $link = "login.php";
     //Se verifica que el usuario este con sesion iniciada
     if($_SESSION["iduser"] == NULL){
