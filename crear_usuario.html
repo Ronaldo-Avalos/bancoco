@@ -39,53 +39,83 @@
     <div class="center-register">
       <h1>Crea tu cuenta</h1>
       <form method="POST" action="abrir_usuario.php" name="crar_usuario">
-
-
-        <div class="txt_field1">
-            <input type="text" for="name" id="name" name="name" required>
-            <span></span>
-            <label>Nombre's</label>
-          </div>
-          <div class="txt_field1">
-            <input type="text" for="ape_pat" id="ape_pat" name="ape_pat" required>
-            <span></span>
-            <label>Apellido Paterno</label>
-          </div>
-          <div class="txt_field1">
-            <input for="ape_mat" id="ape_mat" name="ape_mat" required>
-            <span></span>
-            <label>Apellido Materno</label>
-          </div>
-          <div class="txt_field1">
-            <input type="text" for="usuario" id="usuario"  name="usuario"required>
-            <span></span>
-            <label>Usuario</label>
-          </div>
-          <div class="txt_field1">
-            <input type="email"  name="correo" id="correo" required>
-            <span></span>
-            <label>Correo electronico</label>
-          </div>
-          <div class="txt_field1">
-            <input type="password" for="contra1" id="contra1" name="contra1" required>
-            <span></span>
-            <label>Contraseña</label>
-          </div>
-          <div class="txt_field1">
-            <input type="text" for="telefono" id="telefono" name="telefono" required>
-            <span></span>
-            <label>Número de teléfono</label>
-          </div>
-          <div class="">
-            <label for="sexo">Sexo</label><br>
-        <input type="radio" id="sexo" name="sexo" value="0" checked><label for="sexohombre">Hombre</label>
-        <input type="radio" id="sexo" name="sexo" value="1"><label for="sexomujer">Mujer</label><br>
-          </div>
-          <div class="txt_field1">
-            <p>Fecha de nacimoiento</p>
-            <input type="date" name="fecha" id="fecha" required>
+          <table>
+            <tr>
+              <tr>
+                <div class="txt_field1 nombre1">
+                  <input type="text" for="name" id="name" name="name" required>
+                  <span></span>
+                  <label>Nombre(s)</label>
+                </div>
+              </tr>
+            </tr>
             
-          </div>
+            <tr>
+              <th>
+                  <div class="txt_field1">
+                    <input type="text" for="ape_pat" id="ape_pat" name="ape_pat" required>
+                    <span></span>
+                    <label>Apellido Paterno</label>
+                  </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <input for="ape_mat" id="ape_mat" name="ape_mat" required>
+                  <span></span>
+                  <label>Apellido Materno</label>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div class="txt_field1">
+                  <input type="text" for="usuario" id="usuario"  name="usuario"required>
+                  <span></span>
+                  <label>Usuario</label>
+                </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <input type="password" for="contra1" id="contra1" name="contra1" required>
+                  <span></span>
+                  <label>Contraseña</label>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div class="txt_field1">
+                  <input type="text"  name="correo" id="correo" required>
+                  <span></span>
+                  <label>Correo electronico</label>
+                </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <input type="text" for="telefono" id="telefono" name="telefono" required >
+                  <span></span>
+                  <label>Número de teléfono</label>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div >
+                  <label style="color: #adadad; font-size: 15px;" for="sexo">Sexo</label><br>
+              <input type="radio" id="sexo" name="sexo" value="0" checked><label style="color: #adadad; font-size: 15px;" for="sexohombre">Hombre</label>
+              <input type="radio" id="sexo" name="sexo" value="1"><label style="color: #adadad; font-size: 15px;" for="sexomujer">Mujer</label><br>
+                </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <p style="color: #adadad; font-size: 15px;">Fecha de nacimoiento</p>
+                  <input style="color: #adadad; font-size: 15px;" type="date" name="fecha" id="fecha" required>
+                  
+                </div>
+              </th>
+            </tr>
+
+          </table>
          
           <input type="submit" value="Crear Cuenta" class="btn-solid-sm">
           <div class="signup_link">
