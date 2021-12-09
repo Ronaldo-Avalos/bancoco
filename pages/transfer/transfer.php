@@ -20,16 +20,16 @@
 	<div class="container">
 
 		<!-- Logo -->
-		<a class="navbar-brand logo-image" href="/index.php"><img src="/images/logo.svg" alt="alternative"></a> 
+		<a class="navbar-brand logo-image" href="../../index.php"><img src="../../images/logo.svg" alt="alternative"></a> 
 
 		<div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
 			<ul class="navbar-nav ms-auto navbar-nav-scroll">
 				<li class="nav-item">
-					<a class="nav-link" href="../index.php #contacto">Tengo un problema</a>
+					<a class="nav-link" href="../../index.php #contacto">Tengo un problema</a>
 				</li>
 			</ul>
 			<span class="nav-item">
-				<a  class="btn-solid-sm" href="../index.php">Regresar</a>
+				<a  class="btn-solid-sm" href="../../index.php">Regresar</a>
 			</span>
 		</div> 
 	</div>

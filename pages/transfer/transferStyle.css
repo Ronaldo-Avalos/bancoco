@@ -10,13 +10,13 @@ body{
   padding: 0;
   /*background: linear-gradient(110 deg,#030973, #010626);
  */
- background: url(/images/header-background1.jpg);
+ background: url(../../images/header-background1.jpg);
  height: 100vh;
   overflow: hidden;
 }
 .center {
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 400px;
