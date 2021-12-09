@@ -68,9 +68,9 @@
         $Psexo = $_POST['sexo'];
 
 		//Se envian los datos con la funcion crear_usuario()
-		$stmt = mysqli_prepare($Pcon, "CALL crear_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, '')") or die(mysqli_error());
+		$stmt = mysqli_prepare($Pcon, "CALL crear_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, @countRow)") or die(mysqli_error());
 		mysqli_stmt_bind_param($stmt, 'ssssissss', $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo, $Pusuario, $Ppass);
-		mysqli_stmt_execute($stmt) or die("Error de envio de datos.");
+		mysqli_stmt_execute($stmt);
 
 		//Para errores:	echo("Error description: " . $Pcon->error);
 		
