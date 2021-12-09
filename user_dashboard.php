@@ -20,6 +20,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>	
   <body class="grid-container">
+  
     <header class="header"> 
     <!-- Nav -->
     <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
@@ -43,7 +44,6 @@
 
     <div class="titulo">
       <h1 id="greeting">¡Bienvenido!</h1>
-		
       <h6>¡Hola! desde aquí puedes realizar tus operaciones</h6>  
     </div>
   </header>
@@ -126,11 +126,12 @@
 
 
       </dv>
-      <div class="img">
+      <!-- <div class="img-g">
         <img src="images/people.svg" alt="">
 
-      </div>
+      </div> -->
 	</article> 
+
   </body>
 	
 	<script>
@@ -143,12 +144,9 @@
 			}
 			
 			$('#greeting').load('lib_php/greeting.php');
-			
-			
-			
+					
 		};
 		
-
 		$('#combo_cuenta').change(function() {
 			$.ajax({
 				url: "lib_php/getAccountData.php",

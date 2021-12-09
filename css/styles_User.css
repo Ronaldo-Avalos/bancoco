@@ -276,9 +276,10 @@ MANERA VISUAL */
       "footer footer" 100px /
        200px   auto;
   }
+
 }
 
-/* Diseo destock*/
+/* Diseno destock*/
 @media (min-width: 900px){
   .grid-container{
       grid-template: 
@@ -288,6 +289,7 @@ MANERA VISUAL */
        200px   auto     200px ;
    
   }
+
 
 
 .header {
@@ -418,7 +420,7 @@ MANERA VISUAL */
  .main{
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(10,auto) ;
+  grid-template-columns: repeat(5,auto) ;
   grid-template-rows: repeat(3,1fr);
  }
 
@@ -435,12 +437,6 @@ MANERA VISUAL */
 .tabla{
   grid-column: 2/5;
   /* background-color: tomato; */
-  grid-row: 1/4;
-}
-
-.img{
-  grid-column: 5/11;
-  /* background-color:turquoise; */
   grid-row: 1/4;
 }
 
@@ -478,7 +474,7 @@ select {
   margin: 0 auto;
   margin-top: 15px;
   
-}
+} 
 .botones .btn{
   display: inline-block;
   border: 1px solid #030973;
@@ -512,109 +508,3 @@ select {
 
 }
 }
-/* 
-.btn {
-  display: inline-block;
-  border: 1px solid #030973;
-  border-radius: 9px;
-  background-color: #030973;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 0;
-  text-decoration: none;
-  transition: all 0.2s;
-  margin: 0px 0px 16px;
-  width: 227px;
-  padding: 9%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
-}
-.btn:hover {
-background-color: transparent;
-color: #030973; 
-text-decoration: none;
-} */
-/* 
-  
-.saldo {
-  background-color: #030973;
-  width: 227px;
-  height: 100px;
-  margin: 0 1% 1% 17px;
-  top: 40%;
-  border-radius: 15px;
-  color: white;
-  text-align: center;
-  padding-top: 18px;
-  position: absolute;
-  box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
-}
-.saldo p{
-  margin: 8px 10px;
-}
-select {
-  background: transparent;
-  border: none;
-  font-size: 14px;
-  height: 30px;
-  padding: 5px;
-  width: 227px;
-  background-color: rgb(230, 230, 230);
-  border-radius: 6px;
-  text-align: center;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
-}
-
-.cuenta{
-  position: absolute;
-  margin: 0 1% 1%;
-  width: 227px;
-  
-}
-
-.btns{
-  top: 54%;
-  position: absolute;
-  margin: 0 1% 1%;
-  width: 227px;
-
-}
-
-.btns .btn {
-  display: inline-block;
-  border: 1px solid #030973;
-  border-radius: 9px;
-  background-color: #030973;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 0;
-  text-decoration: none;
-  transition: all 0.2s;
-  margin: 0px 1px 16px;
-  width: 227px;
-  padding: 9%;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.05);
-}
-.btn:hover {
-background-color: transparent;
-color: #030973; 
-text-decoration: none;
-}
-
-.tab {
-  padding: 0 5% 7%  8%;
-  position: relative;
-  top: 2%;
-  width: 41%;
-  margin: 4px 15%;
-}
-img{
-  position: relative;
-  width: 600px;
-      margin: 0% 55%;
-      top: -38%;
-
-
-}
- */
