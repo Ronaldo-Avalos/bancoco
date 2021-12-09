@@ -90,12 +90,11 @@ header('refresh:5, url=retiro_efectivo.php');
 		mysqli_stmt_bind_param($stmt, 'ssi', $Pfecha, $Pcuenta_origen, $Pmonto);
 		mysqli_stmt_execute($stmt);
 
-		echo "<h2>Transaccion exitosa.</h2>";
-		?> <html> 
-			<button type="button" onclick="location.href='user_dashboard.html'">Regresar al dashboard</button> 
-			</html>
-		<?php
+		echo "<h2>Transaccion exitosa. Regresando a Dashboard</h2>";
+		
 		mysqli_close($conect);
+		
+		header('refresh:5, url=user_dashboard.html');
 
 		exit();
 	}
