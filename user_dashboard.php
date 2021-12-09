@@ -53,7 +53,7 @@
      
       <div class="saldo">
         <div class="cuenta">
-          <p class="txt" style="color: #212529;">Selecciona tu Cuenta:</p>
+          <p class="txt" style="color: #212529;">Selecciona una cuenta:</p>
 			<div class="row align-middle">
 			<div class="col align-middle" style="width: 70%;">
             <select id="combo_cuenta" style="width: 100%;">
