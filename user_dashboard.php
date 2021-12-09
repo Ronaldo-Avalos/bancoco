@@ -42,7 +42,7 @@
     </nav> <!--Fin de Nav -->
 
     <div class="titulo">
-      <h1 id="greeting">¡Bienvenido!</h1>  <!--CAMBIAR USUARIO-->
+      <h1 id="greeting">¡Bienvenido!</h1>
 		
       <h6>¡Hola! desde aquí puedes realizar tus operaciones</h6>  
     </div>
@@ -83,7 +83,8 @@
         </div>
         <div class="sal">
           <h5>Saldo</h5>   <!--CAMBIAR-->
-          <p id="accountMoney" class="money"></p>  <!--CAMBIAR-->
+          <p id="accountMoney" class="money" style="margin-bottom: 0px"></p>  <!--CAMBIAR-->
+		  <a href="#" class="btn btn-primary" style="width: 200px; border-radius: 0px 0px 17px 17px;">Estado de cuenta</a >
         </div>
               
       <div class="botones">

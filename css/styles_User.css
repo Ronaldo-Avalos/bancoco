@@ -453,7 +453,7 @@ MANERA VISUAL */
 .cuenta .txt{
   margin-top: -1px;
   margin-bottom: 1rem;
-  margin-left: 24px;
+  margin-left: 10px;
 }
 select {
   background: transparent;
@@ -468,16 +468,15 @@ select {
 .sal{
   background-color:#030973;
   width: 200px;
-  height: 100px;
   margin: 0 auto;
   text-align: center;
-  padding-top: 18px;
+  padding-top: 10px;
   border-radius: 17px;
 }
 .botones{
   width: 200px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 15px;
   
 }
 .botones .btn{
