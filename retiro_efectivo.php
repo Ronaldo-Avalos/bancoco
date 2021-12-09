@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['iduser'] = 6;
+    //$_SESSION['iduser'] = 6;
     //Se verifica que el usuario este con sesion iniciada
     if($_SESSION["iduser"] == NULL){
         echo "<b>Es necesario iniciar sesion.</b><br/>";
