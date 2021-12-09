@@ -3,7 +3,7 @@
     session_start();
     $link = "login.php";
 
-    if($_SESSION["usuario"] == NULL){
+    if($_SESSION["iduser"] == NULL){
         echo "<b>Es necesario iniciar sesion.</b><br/>";
         ?> <html>
             <button type="button" onclick="location.href='login.php'">Iniciar sesion</button>
