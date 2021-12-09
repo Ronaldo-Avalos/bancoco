@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    $_SESSION['iduser'] = 0;
+    //$_SESSION['iduser'] = 0;
 
     if(isset($_SESSION['iduser'])){
 		if ($_SESSION['iduser']==NULL){
@@ -13,8 +13,8 @@
 
     header('refresh:5, url=user_dashboard.html');
 
-    $conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
-    //$conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
+    //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
+    $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
 
     $unico = false;
     $numero = "";

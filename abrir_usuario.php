@@ -2,8 +2,8 @@
 
 	header('refresh:5, url=crear_usuario.php');
 
-	//$Pcon = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
-	$Pcon = mysqli_connect("localhost","root","","bancoco") or die ("No se encuentra la base de datos");
+	$Pcon = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
+	//$Pcon = mysqli_connect("localhost","root","","bancoco") or die ("No se encuentra la base de datos");
 
 	$valida = true;
 	//se comprueba que todos los campos esten llenos
