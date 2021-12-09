@@ -1,6 +1,6 @@
 <?php
 
-	header('refresh:5, url=crear_usuario.html');
+	header('refresh:5, url=crear_usuario.php');
 
 	//$Pcon = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
 	$Pcon = mysqli_connect("localhost","root","","bancoco") or die ("No se encuentra la base de datos");
@@ -94,7 +94,7 @@
         //hace conexion a la bd
         global $Pcon, $consulta;
         //hace consulta de la cuenta
-		$sql = "SELECT * FROM cat_clientes WHERE correo = $Pcorreo";
+		$sql = 'SELECT * FROM cat_clientes WHERE correo = "'.$Pcorreo.'"';
 		//returna el resultado de select
         return $Pcon->query($sql);
     }
@@ -116,8 +116,6 @@
 	}
 
 	$busqueda = revisar_correo($Pcorreo);
-	echo ("Error :".$Pcon->error);
-	echo ("<br>".$Pcorreo);
 	$row = $busqueda->fetch_assoc();
 	if($row!=NULL){
 		$valida = false;
@@ -135,7 +133,7 @@
 		
 		echo "<br><br><br><h2>El usuario se ha creado con exito</h2>";
 
-		header('refresh:5, url=user_dashboard.html');
+		header('refresh:5, url=login.html');
 
 		mysqli_close($Pcon);
     }
