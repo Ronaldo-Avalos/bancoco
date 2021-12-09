@@ -1,10 +1,11 @@
 <?php 
+	include 'lib_php/conection.php';
 
-session_start();
+	session_start();
 
-if(empty($_SESSION['iduser'])) {
-    header("Location: login.php?error=2");
-  }
+	if(empty($_SESSION['iduser'])) {
+		header("Location: login.php?error=2");
+	  }
 
 ?>
 <!DOCTYPE html>
@@ -16,7 +17,8 @@ if(empty($_SESSION['iduser'])) {
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
-  </head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>	
   <body class="grid-container">
     <header class="header"> 
     <!-- Nav -->
@@ -40,8 +42,9 @@ if(empty($_SESSION['iduser'])) {
     </nav> <!--Fin de Nav -->
 
     <div class="titulo">
-      <h1>¡Bienvenido! (ususario) </h1>  <!--CAMBIAR USUARIO-->
-      <h6 >Hola! desde aquí puedes realizar tus operaciones</h6>  
+      <h1 id="greeting">¡Bienvenido!</h1>  <!--CAMBIAR USUARIO-->
+		
+      <h6>Hola! desde aquí puedes realizar tus operaciones</h6>  
     </div>
   </header>
   <aside class="sidebar"> </aside>
@@ -50,16 +53,30 @@ if(empty($_SESSION['iduser'])) {
      
       <div class="saldo">
         <div class="cuenta">
-          <p class="txt">Selecciona tu Cuenta:</p> 
-            <select name="no-cuenta">
-                <option selected>No. cuenta</option>  <!--CAMBIAR-->
-                <option >option 2</option>  <!--CAMBIAR-->
-                <option >option 3</option>   <!--CAMBIAR-->
+          <p class="txt" style="color: #212529;">Selecciona tu Cuenta:</p> 
+            <select id="combo_cuenta">
+				<?php
+
+				$sql="SELECT no_cuenta FROM cat_cuentas WHERE id_cliente=".$_SESSION['iduser'];
+
+				if ($result=mysqli_query($con,$sql))
+				{
+				// Fetch one and one row
+				while ($row=mysqli_fetch_row($result))
+				{
+					echo '<option>'.$row[0].'</option>';
+				}
+				// Free result set
+				mysqli_free_result($result);
+				}
+
+				mysqli_close($con);
+				?>
             </select>
         </div>
         <div class="sal">
           <h5>Saldo</h5>   <!--CAMBIAR-->
-          <p>$150,000</p>  <!--CAMBIAR-->
+          <p id="accountMoney"></p>  <!--CAMBIAR-->
         </div>
               
       <div class="botones">
@@ -100,62 +117,36 @@ if(empty($_SESSION['iduser'])) {
         <img src="/images/people.svg" alt="">
 
       </div>
-    
-
-
-
-    <!-- <div class="saldo">
-      <h5>Saldo</h5>
-      <p>$ 150,000</p>
-     </div> -->
-    
-
-    <!-- <div class="titulo">
-        <h1>¡Bienvenido! (ususario) </h1>
-        <h6 >Hola! (NUMERO DE CUENTA) desde aquí puedes realizar tus operaciones</h6>
-      </div>
-        <div class="cuenta">
-            <p>Selecciona tu Cuenta:</p>
-            <select name="no-cuenta">
-                <option selected>No. cuenta</option>
-                <option >option 2</option>
-                <option >option 3</option>  
-            </select>
-        </div>
-
-   
-    <div class="btns">
-        <a href="#" class="btn">Transferencia</a >
-        <a href="#" class="btn">Retirar en efectivo</a >
-        <a href="#" class="btn">Cancelar Cuenta</a >
-        <a href="#" class="btn">Cambiar NIP</a >
-        <a href="#" class="btn">Crear una nueva cuenta</a >
-    </div>
-    <div class="tab">
-        <table class="table table-striped">
-            <thead> 
-            <th>Movimientos de la cuenta:  </th>
-        </thead>
-        <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Movimiento</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Movimiento</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td >Movimiento</td>
-              
-            </tr>
-          </tbody>
-          </table>
-    </div>
-    <img src="/images/people.svg" alt="">-->
-</article> 
+	</article> 
 
     <footer class="footer"> </footer>
   </body>
+	
+	<script>
+		window.onload = function() {
+			
+			if($('#combo_cuenta option').length > 0){
+				var element = document.getElementById('combo_cuenta');
+				var event = new Event('change');
+				element.dispatchEvent(event);
+			}
+			
+			$('#greeting').load('lib_php/greeting.php');
+			
+			
+			
+		};
+		
+		$('#combo_cuenta').change(function() {
+			$.ajax({
+				url: "lib_php/getAccountData.php",
+				data: {
+					account: $(this).val()
+				},
+				success: function( result ) {
+					$( "#accountMoney" ).html(result);
+					}
+			});
+		});
+	</script>
 </html>

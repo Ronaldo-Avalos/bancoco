@@ -1,9 +1,7 @@
 <?php
     
     include 'conection.php';
-	
-	if (isset($_POST['usuario']) && isset($_POST['contrasena'])) {
-		
+
 		$usuario = $_POST['usuario'];
 		$pass = $_POST['contrasena'];
 
@@ -21,6 +19,5 @@
 			$_SESSION['iduser'] = $id_user;
 			header("Location: ../user_dashboard.php");
 		}else header("Location: ../login.php?error=1");
-	}
 
 ?>
