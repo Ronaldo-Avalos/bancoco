@@ -1,6 +1,6 @@
 <?php
     session_start();
-    //$_SESSION['iduser'] = 6;
+    $_SESSION['iduser'] = 6;
     //Se verifica que el usuario este con sesion iniciada
     if($_SESSION["iduser"] == NULL){
         echo "<b>Es necesario iniciar sesion.</b><br/>";
@@ -46,7 +46,45 @@
     <link href="css/styles_User.css" rel="stylesheet">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
- 
+<nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+
+            
+            <a class="navbar-brand logo-image" href="index.php"><img src="images/logo.svg" alt="alternative"></a> 
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.php#header">Misión </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#vision">Visión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#somos">Quienes somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#sevicios">Servicios</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Mas...</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                            <li><a class="dropdown-item" href="index.php#contacto">Servicio al cliente</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="index.php#contacto">Contacto</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a class="dropdown-item" href="crear_cuenta.html">Apertura de cuenta</a></li>
+                            <li><div class="dropdown-divider"></div></li>
+                            <li><a target="_blank" class="dropdown-item" href="Login/login.php">Estado de cuenta</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span class="nav-item">
+                    <a  target="" class="btn-solid-sm" href="Login/login.php">Acceso</a>
+                </span>
+            </div> 
+        </div>
+    </nav> 
     <div class="center"> <!--Inicio del formulario para transferir-->
     <h1>Realizar retiro</h1>
         <form method="post" action="retirar.php">
