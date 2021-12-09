@@ -1,3 +1,4 @@
+<?php include 'lib_php/conection.php';?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -37,20 +38,16 @@
     </nav> <!--Fin de Nav -->
     <div class="center">
       <h1>Inicia Sesión</h1>
-      <form method="post">
+      <form action="lib_php/auth_user.php" method="post">
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" name="usuario" autocomplete="off" required>
           <span></span>
-          <label>No. cuenta</label>
+          <label>Usuario</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" name="contrasena" required>
           <span></span>
-          <label>NIP</label>
-        </div>
-        
-        <div class="pass">
-          Olvidé mi NIP
+          <label>Contraseña</label>
         </div>
 
         <input type="submit" value="Entrar" class="btn-solid-sm">
