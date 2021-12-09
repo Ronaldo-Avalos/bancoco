@@ -42,7 +42,7 @@
                             <li><div class="dropdown-divider"></div></li>
                             <li><a class="dropdown-item" href="#contacto">Contacto</a></li>
                             <li><div class="dropdown-divider"></div></li>
-                            <li><a class="dropdown-item" href="# ">Apertura de cuenta</a></li>
+                            <li><a class="dropdown-item" href="crear_usuario.html">Apertura de cuenta</a></li>
                             <li><div class="dropdown-divider"></div></li>
                             <li><a target="_blank" class="dropdown-item" href="login.php">Estado de cuenta</a></li>
                         </ul>
@@ -103,7 +103,7 @@
                         <p class="p-large">¡Abre una cuenta bancaria y comienza ya! Administra tus finanzas fácil y rápido</p>
                         <p>Número de visitantes de la pagina: <?php echo $total ?> </p>
                         <p>Usuarios Activos: <?php echo $USUARIOS_ACTIVOS?></p> 
-                        <a class="btn-solid-lg" href=" # ">Abre tu cuenta </a>
+                        <a class="btn-solid-lg" href="crear_usuario.html">Abre tu cuenta </a>
                     </div> 
                 </div> 
                    <div class="col-lg-6 col-xl-7">
@@ -266,10 +266,10 @@
                         <div class="form-group">
                         <select name="asunto" size="1" id="asunto" class="form-control-input" >
                                 <option selected>Seleccione</option>
-                                 <option>Pregunta</option>
-                                 <option>Información</option>
-                                 <option>Comentario</option>
-                                 <option>Sugerencia</option>
+                                <option>Pregunta</option>
+                                <option>Información</option>
+                                <option>Comentario</option>
+                                <option>Sugerencia</option>
                         </select>
                         </div>
                         <div class="form-group">
