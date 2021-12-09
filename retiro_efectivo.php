@@ -1,14 +1,10 @@
 <?php
     session_start();
     //$_SESSION['iduser'] = 6;
-    $link = "login.php";
     //Se verifica que el usuario este con sesion iniciada
     if($_SESSION["iduser"] == NULL){
         echo "<b>Es necesario iniciar sesion.</b><br/>";
-        ?> <html>
-            <button type="button" onclick="location.href='login.php'">Iniciar sesion</button>
-            </html>
-        <?php
+        header('refresh:5, url=login.php');
         exit();
     }
 

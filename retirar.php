@@ -94,7 +94,7 @@ header('refresh:5, url=retiro_efectivo.php');
 		
 		mysqli_close($conect);
 		
-		header('refresh:5, url=user_dashboard.html');
+		header('refresh:5, url=user_dashboard.php');
 
 		exit();
 	}
