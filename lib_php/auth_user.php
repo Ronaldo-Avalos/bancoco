@@ -19,8 +19,8 @@
 			session_set_cookie_params(0);
 			session_start();
 			$_SESSION['iduser'] = $id_user;
-			echo 'Credenciales correctas';
-		}
+			header("Location: ../user_dashboard.php");
+		}else header("Location: ../login.php?error=1");
 	}
 
 ?>

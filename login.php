@@ -38,6 +38,22 @@
     </nav> <!--Fin de Nav -->
     <div class="center">
       <h1>Inicia Sesión</h1>
+		<?php 
+
+			if(isset($_GET['error']) && $_GET['error']==1){
+
+			echo '<h3 style="vertical-align: text-bottom; text-align: center; font-weight: normal;"><font color="red">CREDENCIALES NO VALIDAS</font></h3>';
+
+			}else if(isset($_GET['error']) && $_GET['error']==2){
+				echo '<h3 style="vertical-align: text-bottom; text-align: center; font-weight: normal;"><font color="red">TIENES QUE INICIAR SESION PARA ENTRAR</font></h3>';
+			}
+
+			if(isset($_GET['cerrar'])) {
+			session_start();
+			session_destroy(); 
+			}
+		?>
+		
       <form action="lib_php/auth_user.php" method="post">
         <div class="txt_field">
           <input type="text" name="usuario" autocomplete="off" required>
@@ -56,6 +72,8 @@
           No tienes cuenta? <a href="index.php">Registrate</a>
         </div>
       </form>
+
+		
     </div>
 
   </body>

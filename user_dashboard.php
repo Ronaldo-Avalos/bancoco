@@ -1,3 +1,12 @@
+<?php 
+
+session_start();
+
+if(empty($_SESSION['iduser'])) {
+    header("Location: login.php?error=2");
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,7 +33,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a  class="btn-solid-sm" href="">Cerrar sesiósn</a>
+                    <a  class="btn-solid-sm" href="login.php?cerrar=1">Cerrar sesión</a>
                 </span>
             </div> 
         </div>
