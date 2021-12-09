@@ -3,7 +3,7 @@
     
     $link = "login.php";
     //Se verifica que el usuario este con sesion iniciada
-    if($_SESSION["usuario"] == NULL){
+    if($_SESSION["iduser"] == NULL){
         echo "<b>Es necesario iniciar sesion.</b><br/>";
         ?> <html>
             <button type="button" onclick="location.href='login.php'">Iniciar sesion</button>
@@ -12,7 +12,7 @@
         exit();
     }
 
-    $Pid_usuario = $_SESSION["usuario"];
+    $Pid_usuario = $_SESSION["iduser"];
 
     // Se hace conexion con la base de datos
     //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
