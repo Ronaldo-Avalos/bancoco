@@ -90,7 +90,7 @@
       <div class="botones">
         <a href="./pages/transfer/transfer.php" class="btn">Transferencia</a >
         <a href="#" class="btn">Retirar en efectivo</a >
-        <a href="#" class="btn">Cambiar NIP</a >
+        <a href="#" class="btn" onclick="handleBtnNipClick()">Cambiar NIP</a >
 	  </div> 
 	  <div style="width: 200px; margin: 0 auto;">  
 	  <a href="#" class="btn btn-danger" style = "width: 100%;">Cerrar Cuenta</a >
@@ -146,6 +146,30 @@
 			$('#greeting').load('lib_php/greeting.php');
 					
 		};
+		
+		//Change nip function
+		function handleBtnNipClick(){
+			let text;
+		  	let newNip = prompt("Ingresa tu nuevo NIP (4 digitos):", "");
+			
+			const digits_only = string => [...string].every(c => '0123456789'.includes(c))
+			
+			newNip = newNip.replace(/\s/g, "");
+			
+		  	if ((!isNaN(parseInt(newNip))) && newNip.length == 4 && digits_only(newNip)) {
+				$.ajax({
+					url: "lib_php/changeNip.php",
+					data: {
+						nip: newNip
+					},
+					success: function( result ) {
+						alert(result);
+					}
+				});
+		  	} else {	
+				alert("NIP no valido");
+		  	}
+		}
 		
 		$('#combo_cuenta').change(function() {
 			$.ajax({
