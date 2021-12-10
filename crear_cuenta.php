@@ -1,15 +1,14 @@
 <?php
 
     session_start();
-    //$_SESSION['iduser'] = 0;
+    $link = "login.php";
 
-    if(isset($_SESSION['iduser'])){
-		if ($_SESSION['iduser']==NULL){
-			header('refresh:5, url=login.php');
-            echo "<h2>Es necesario iniciar sesion.</h2><br/>";
-            exit();
-		}
-	}
+    if($_SESSION["iduser"] == NULL){
+        header('refresh:5, url=login.php');
+        echo "<b>Es necesario iniciar sesion.</b><br/>";
+        <?php
+        exit();
+    }
 
     header('refresh:5, url=user_dashboard.html');
 
