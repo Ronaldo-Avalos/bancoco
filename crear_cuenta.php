@@ -4,10 +4,8 @@
     $link = "login.php";
 
     if($_SESSION["iduser"] == NULL){
+        header('refresh:5, url=login.php');
         echo "<b>Es necesario iniciar sesion.</b><br/>";
-        ?> <html>
-            <button type="button" onclick="location.href='login.php'">Iniciar sesion</button>
-            </html>
         <?php
         exit();
     }
