@@ -11,8 +11,6 @@
 	$nip = $_GET['nip'];
 	
 	if(strlen($nip) != 4 || !is_int($nip)){
-		$sql = "UPDATE cat_cuentas SET nip = ? WHERE no_cuenta = ? AND id_cliente = ?";
-
 		$call = mysqli_prepare($con, 'UPDATE cat_cuentas SET nip = ? WHERE no_cuenta = ? AND id_cliente = ?');
 		mysqli_stmt_bind_param($call, 'ssi', $nip, $_SESSION['selectedAccount'], $_SESSION['iduser']);
 		
