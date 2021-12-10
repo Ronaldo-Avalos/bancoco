@@ -16,14 +16,18 @@
 
 	if ((int)$queryValue > 0 ){
 		
-		$call = mysqli_prepare($con, 'UPDATE cat_cuentas SET activa = false WHERE no_cuenta = ? AND id_cliente = ?');
-		mysqli_stmt_bind_param($call, 'si', $_SESSION['selectedAccount'], $_SESSION['iduser']);
-		
+		$call = mysqli_prepare($con, 'CALL cerrar_cuenta(?, ?, ?, @countRow)');
+		mysqli_stmt_bind_param($call, 'sdi', $_SESSION['selectedAccount'], $_SESSION['selectedAccountMoney'], $_SESSION['iduser']);
+		mysqli_stmt_execute($call);
 
-		if (mysqli_stmt_execute($call) === TRUE) {
-		  echo "La cuenta se cerró correctamente";
+		$select = mysqli_query($con, 'SELECT @countRow');
+		$result = mysqli_fetch_assoc($select);
+		$countRow = $result['@countRow'];
+
+		if ($countRow > 0) {
+			echo "La cuenta se cerró correctamente";
 				exit;
-		} else {
+		}else{
 		  echo "Error al intentar cerrar la cuenta";
 				exit;
 		}

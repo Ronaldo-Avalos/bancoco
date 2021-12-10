@@ -132,6 +132,13 @@
 	<script>
 		window.onload = function() {
 			
+			forceDivUpdate();
+			
+			$('#greeting').load('lib_php/greeting.php');
+					
+		};
+		
+		function forceDivUpdate(){
 			if($('#combo_cuenta option').length > 0){
 				var element = document.getElementById('combo_cuenta');
 				var event = new Event('change');
@@ -140,10 +147,7 @@
 				$('#btnNewAccount').addClass("intermitente");
 				$('#lbl_alert').html("¡Hola! Al parecer no tienes una cuenta bancoco, pulsa el botón de crear nueva cuenta para abir una.");
 			}
-			
-			$('#greeting').load('lib_php/greeting.php');
-					
-		};
+		}
 		
 		//Change nip function
 		function handleBtnNipClick(){
@@ -178,6 +182,7 @@
 					url: "lib_php/disableAccount.php",
 					success: function( result ) {
 						alert(result);
+						forceDivUpdate();
 					}
 				});
 			}
