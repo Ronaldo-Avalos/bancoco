@@ -44,7 +44,7 @@
 
     <div class="titulo">
       <h1 id="greeting">¡Bienvenido!</h1>
-      <h6>¡Hola! desde aquí puedes realizar tus operaciones</h6>  
+      <h6 id="lbl_alert">¡Hola! desde aquí puedes realizar tus operaciones</h6>  
     </div>
   </header>
   <aside class="sidebar"> </aside>
@@ -54,6 +54,7 @@
       <div class="saldo">
         <div class="cuenta">
           <p class="txt" style="color: #212529;">Selecciona una cuenta:</p>
+		  
 			<div class="row align-middle">
 			<div class="col align-middle" style="width: 70%;">
             <select id="combo_cuenta" style="width: 100%;">
@@ -77,7 +78,7 @@
             </select>
 			</div>
 			<div style="width: 30%;">
-				<a href="#" class="btn btn-outline-secondary btn-sm"><strong>+</strong></a >
+				<a href="#" id="btnNewAccount" class="btn btn-outline-secondary btn-sm"><strong>+</strong></a >
 			</div>
 				</div>
         </div>
@@ -135,6 +136,9 @@
 				var element = document.getElementById('combo_cuenta');
 				var event = new Event('change');
 				element.dispatchEvent(event);
+			}else{
+				$('#btnNewAccount').addClass("intermitente");
+				$('#lbl_alert').html("¡Hola! Al parecer no tienes una cuenta bancoco, pulsa el botón de crear nueva cuenta para abir una.");
 			}
 			
 			$('#greeting').load('lib_php/greeting.php');
