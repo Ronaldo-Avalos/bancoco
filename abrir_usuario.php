@@ -84,7 +84,7 @@
 	function revisar_telefono($Ptelefono){
         //hace conexion a la bd
         global $Pcon, $consulta;
-        //hace consulta de la cuenta
+        //hace consulta del telefono
 		$sql = 'SELECT * FROM cat_clientes WHERE telefono = '.$Ptelefono;
 		//returna el resultado de select
         return $Pcon->query($sql);
@@ -93,7 +93,7 @@
 	function revisar_correo($Pcorreo){
         //hace conexion a la bd
         global $Pcon, $consulta;
-        //hace consulta de la cuenta
+        //hace consulta del correo
 		$sql = 'SELECT * FROM cat_clientes WHERE correo = "'.$Pcorreo.'"';
 		//returna el resultado de select
         return $Pcon->query($sql);
@@ -121,6 +121,17 @@
 		$valida = false;
 		echo "<h2> El correo ya ha sido registrado</h2>";
 	}
+
+	//se revisa la edad
+	date_default_timezone_set('America/Mexico_City');
+	$fecha_nac = new DateTime($Pfecha_nacimiento);
+	$fecha_hoy = new DateTime("now");
+	$tiempo = $fecha_nac->diff($fecha_hoy);
+	if($tiempo->y < 18){
+		echo "<h2>Es necesario ser mayor de 18 para tener una cuenta bancaria.</h2>";
+		$valida = false;
+	}
+
 
     if ($valida == true){
 

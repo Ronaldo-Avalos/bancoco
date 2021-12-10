@@ -32,8 +32,6 @@ header('refresh:5, url=retiro_efectivo.php');
 	$Pcuenta_origen = $_POST['origen'];
 	settype($Pmonto, "integer");
     $consulta = " ";
-	date_default_timezone_set('America/Mexico_City');
-	$Pfecha = date('y/m/d G:i:s');
 
 	if($Pmonto > 10000){
 		echo "<h2> La cantidad a retirar supera el limite de retiro.</h2>";
@@ -86,8 +84,8 @@ header('refresh:5, url=retiro_efectivo.php');
 
 	if($valida == true){
 
-		$stmt = mysqli_prepare($conect, "CALL retiro(?, ?, ?, @rowCount)");
-		mysqli_stmt_bind_param($stmt, 'ssi', $Pfecha, $Pcuenta_origen, $Pmonto);
+		$stmt = mysqli_prepare($conect, "CALL retiro(?, ?, @rowCount)");
+		mysqli_stmt_bind_param($stmt, 'si', $Pcuenta_origen, $Pmonto);
 		mysqli_stmt_execute($stmt);
 
 		echo "<h2>Transaccion exitosa. Regresando a Dashboard</h2>";
