@@ -10,7 +10,7 @@
 
 	if (isset($_GET['account'])){
 		
-		$sql="SELECT saldo FROM cat_cuentas WHERE no_cuenta=".$_GET['account']." && id_cliente = ".$_SESSION['iduser'];
+		$sql="SELECT saldo, activa FROM cat_cuentas WHERE no_cuenta=".$_GET['account']." && id_cliente = ".$_SESSION['iduser'];
 		
 		if ($result=mysqli_query($con,$sql))
 		{
@@ -19,6 +19,7 @@
 		while ($row=mysqli_fetch_row($result))
 		{
 			$money = $row[0];
+			$_SESSION['selectedAccountState'] = $row[1];
 		}
 		// Free result set
 		mysqli_free_result($result);
@@ -29,7 +30,7 @@
 		$_SESSION['selectedAccount'] = $_GET['account'];
 		$_SESSION['selectedAccountMoney'] = $money;
 		
-		echo $money;
+		echo json_encode(array($money, $_SESSION['selectedAccountState']));
 		
 		}
 ?>

@@ -86,14 +86,8 @@
           <p id="accountMoney" class="money" style="margin-bottom: 0px"></p>  <!--CAMBIAR-->
 		  <a href="#" class="btn btn-primary" style="width: 200px; border-radius: 0px 0px 17px 17px;">Estado de cuenta</a >
         </div>
-              
-      <div class="botones">
-        <a href="./pages/transfer/transfer.php" class="btn">Transferencia</a >
-        <a href="#" class="btn">Retirar en efectivo</a >
-        <a href="#" class="btn" onclick="handleBtnNipClick()">Cambiar NIP</a >
-	  </div> 
-	  <div style="width: 200px; margin: 0 auto;">  
-	  <a href="#" class="btn btn-danger" style = "width: 100%;">Cerrar Cuenta</a >
+      <div id="btnOperations">        
+      
 	  </div>
   </div>
       <dv class="tabla">
@@ -171,6 +165,20 @@
 		  	}
 		}
 		
+		//Disable account function
+		function handleBtnDisableClick(){
+			var r = confirm("¿Está seguro de que desea cerrar la cuenta? Esta acción no es reversible");
+			if (r == true) {
+				
+			  $.ajax({
+					url: "lib_php/disableAccount.php",
+					success: function( result ) {
+						alert(result);
+					}
+				});
+			}
+		}
+		
 		$('#combo_cuenta').change(function() {
 			$.ajax({
 				url: "lib_php/getAccountData.php",
@@ -178,10 +186,16 @@
 					account: $(this).val()
 				},
 				success: function( result ) {
-					$( "#accountMoney" ).html(formatter.format(result));
-					$.post('lib_php/updateSelectedAccount.php', { account: $(this).val() });
+					var results = $.parseJSON(result);
+					$( "#accountMoney" ).html(formatter.format(results[0]));
+					if(results[1] == true){
+									$( "#btnOperations" ).html("<div class='botones'><a href='./pages/transfer/transfer.php' class='btn'>Transferencia</a ><a href='#' class='btn'>Retirar en efectivo</a ><a href='#' class='btn' onclick='handleBtnNipClick()'>Cambiar NIP</a ></div> <div style='width: 200px; margin: 0 auto;'>  <a href='#' class='btn btn-danger' onclick='handleBtnDisableClick()' style = 'width: 100%;'>Cerrar Cuenta</a ></div>");
+					}else{
+						$( "#btnOperations" ).html("<p style='color:black; padding-top:20px; text-align:center; width:200px;'>Esta cuenta está desactivada</p>")
 					}
+				}
 			});
+			
 		});
 		
 		const formatter = new Intl.NumberFormat('es-MX', {
