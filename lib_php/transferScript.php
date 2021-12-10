@@ -37,13 +37,17 @@
 			exit;
 		}
 		
-		$sql="SELECT COUNT(id_cuenta) FROM cat_cuentas WHERE no_cuenta = ".$cuenta_destino."";
+		$sql="SELECT activa FROM cat_cuentas WHERE no_cuenta = ".$cuenta_destino."";
 		$result=mysqli_query($con,$sql);
 		$row = $result->fetch_row();
 		$queryValue = $row[0];
 		
-		if((int)$queryValue == 0 ){
+		if($queryValue == null ){
 			echo "<script>alert('La cuenta de destino no existe')
+			window.location.href='../pages/transfer/transfer.php'</script>";
+			exit;
+		}elseif ($queryValue == false){
+			echo "<script>alert('La cuenta de destino está cerrada, no se puede proceder con transacción')
 			window.location.href='../pages/transfer/transfer.php'</script>";
 			exit;
 		}
