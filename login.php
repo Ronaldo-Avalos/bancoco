@@ -1,4 +1,10 @@
-<?php include 'lib_php/conection.php';?>
+<?php include 'lib_php/conection.php';
+  if(isset($_SESSION["iduser"])){
+		if($_SESSION["iduser"] != NULL){
+      header("Location: user_dashboard.php");    
+    }
+	}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

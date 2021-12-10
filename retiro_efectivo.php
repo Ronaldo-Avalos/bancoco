@@ -2,11 +2,14 @@
     session_start();
     //$_SESSION['iduser'] = 0;
     //Se verifica que el usuario este con sesion iniciada
-    if($_SESSION["iduser"] == NULL){
-        header('refresh:5, url=login.php');
-        echo "<b>Es necesario iniciar sesion.</b><br/>";
-        exit();
-    }
+    
+    if(isset($_SESSION["iduser"])){
+		if($_SESSION["iduser"] == NULL){
+            header('refresh:5, url=login.php');
+            echo "<b>Es necesario iniciar sesion.</b><br/>";
+            exit();
+        }
+	}
 
     $Pid_usuario = $_SESSION["iduser"];
 
