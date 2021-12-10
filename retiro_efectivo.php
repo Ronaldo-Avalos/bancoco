@@ -1,6 +1,6 @@
 <?php
     session_start();
-    //$_SESSION['iduser'] = 6;
+    //$_SESSION['iduser'] = 0;
     //Se verifica que el usuario este con sesion iniciada
     if($_SESSION["iduser"] == NULL){
         header('refresh:5, url=login.php');
@@ -18,7 +18,7 @@
     function sacar_cuentas($Pid_usuario){
         global $conect, $consulta;
         //hace consulta de la cuenta
-		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = '.$Pid_usuario;
+		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = '.$Pid_usuario.' AND activa = 1';
 		//returna el resultado de select
         return $conect->query($sql);
     }
