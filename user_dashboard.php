@@ -88,7 +88,7 @@
         </div>
               
       <div class="botones">
-        <a href="#" class="btn">Transferencia</a >
+        <a href="./pages/transfer/transfer.php" class="btn">Transferencia</a >
         <a href="#" class="btn">Retirar en efectivo</a >
         <a href="#" class="btn">Cambiar NIP</a >
 	  </div> 
@@ -157,9 +157,9 @@
 				},
 				success: function( result ) {
 					$( "#accountMoney" ).html(formatter.format(result));
+					$.post('lib_php/updateSelectedAccount.php', { account: $(this).val() });
 					}
 			});
-			format_number();
 		});
 		
 		const formatter = new Intl.NumberFormat('es-MX', {

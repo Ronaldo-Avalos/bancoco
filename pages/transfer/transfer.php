@@ -1,3 +1,14 @@
+<?php 
+	include '../../lib_php/conection.php';
+
+	session_start();
+
+	if(empty($_SESSION['iduser']) || empty($_SESSION['selectedAccount'])) {
+		header("Location: ../../login.php?error=2");
+	  }
+
+	
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -40,24 +51,24 @@
         <div class="center">
 					<h1>Tranferencia bancaria</h1>
 		
-					<form action="#" method="">
+					<form action="../../lib_php/transferScript.php" method=post>
 					  <div class="txt_field">
-						<input type="text" required>
+						<input type="text" value="<?php echo $_SESSION['selectedAccount'];?>" readonly required>
 						<span></span>
-						<label for="pwd">Cuenta Origen</label>
+						<label style="top: 0%;" for="pwd">Cuenta Origen</label>
 					  </div>
 					  <div class="txt_field">
-						<input type="text" required>
+						<input type="text" name="cuenta_destino" required>
 						<span></span>
 						<label for="pwd">Cuenta destino</label>
 					  </div>
 					  <div class="txt_field">
-						<input type="number" required>
+						<input type="number" name="importe" required>
 						<span></span>
 						<label for="pwd">Importe</label>
 					  </div>
 					  <div class="txt_field">
-						<input type="text" required>
+						<input type="text" name="concepto" maxlength="40" required>
 						<span></span>
 						<label for="pwd">Concepto</label>
 					  </div>

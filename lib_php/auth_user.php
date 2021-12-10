@@ -4,7 +4,7 @@
 
 		$usuario = $_POST['usuario'];
 		$pass = $_POST['contrasena'];
-
+		
 		$call = mysqli_prepare($con, 'CALL login(?, ?, @Pid_cliente)');
 		mysqli_stmt_bind_param($call, 'ss', $usuario, $pass);
 		mysqli_stmt_execute($call);

@@ -9,8 +9,9 @@
   	}
 
 	if (isset($_GET['account'])){
+		
 		$sql="SELECT saldo FROM cat_cuentas WHERE no_cuenta=".$_GET['account']." && id_cliente = ".$_SESSION['iduser'];
-
+		
 		if ($result=mysqli_query($con,$sql))
 		{
 		// Fetch one and one row
@@ -24,6 +25,9 @@
 		}
 
 		mysqli_close($con);
+		
+		$_SESSION['selectedAccount'] = $_GET['account'];
+		$_SESSION['selectedAccountMoney'] = $money;
 		
 		echo $money;
 		
