@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractBarcode.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="BarcodeException.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="BarcodeInterface.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Codabar.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Code11.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Code128.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Code39.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Code93.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="EanExt.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="EanUpc.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="I25.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Imb.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Msi.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Postnet.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="Rm4Scc.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+<file name="S25.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683029920000000" remote="131683065920000000" Dst="1" />
+</dwsync>
