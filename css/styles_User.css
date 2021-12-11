@@ -330,7 +330,7 @@ MANERA VISUAL */
 }
 
 
-/*@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -340,11 +340,12 @@ MANERA VISUAL */
 body{
   margin: 0;
   padding: 0;
-  *//*background: linear-gradient(110 deg,#030973, #010626);*//*
+  /*background: linear-gradient(110 deg,#030973, #010626);*/
   background: url(../images/header-background1.jpg);
   height: 100vh;
   overflow: hidden;
 }
+
 .center{
   position: absolute;
   top: 50%;
@@ -434,7 +435,7 @@ input[type="submit"]{
 .signup_link a:hover{
   text-decoration: underline;
 }
-*/
+
 
 .btn-solid-sm {
 	display: inline-block;

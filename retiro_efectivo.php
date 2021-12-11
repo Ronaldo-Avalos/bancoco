@@ -109,7 +109,7 @@
                 <label>Catidad a retirar</label>
             </div>
             <div class="txt_field">
-                <input type="password" id="nip" name="nip">
+                <input type="password" id="nip" name="nip" maxlength = "4">
                 <span></span>
                 <label>Ingresa tu NIP:</label>
             </div>
