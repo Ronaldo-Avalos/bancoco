@@ -3,13 +3,10 @@
     session_start();
     $link = "login.php";
 
-    if(isset($_SESSION["iduser"])){
-		if($_SESSION["iduser"] == NULL){
-            header('refresh:5, url=login.php');
-            echo "<b>Es necesario iniciar sesion.</b><br/>";
-            exit();
-        }
+    if(empty($_SESSION['iduser'])) {
+		header("Location: login.php?error=2");
 	}
+
 
     header('refresh:10, url=user_dashboard.php');
 
