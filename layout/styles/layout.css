@@ -1,0 +1,163 @@
+@charset "utf-8";
+/*
+Template Name: Sislaf
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Copyright: OS-Templates.com
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+File: Layout CSS
+*/
+
+@import url("fontawesome-free/css/fontawesome-all.min.css");
+@import url("framework.css");
+
+/* Rows
+--------------------------------------------------------------------------------------------------------------- */
+.row0, .row0 a{}
+.row1{border:solid; border-width:1px 0;}
+.row2, .row2 a{}
+.row3, .row3 a{}
+.row4, .row4 a{}
+.row5, .row5 a{}
+
+
+/* Content Area
+--------------------------------------------------------------------------------------------------------------- */
+.container{padding:50px 0;}
+
+/* Content */
+.container .content{}
+
+.sectiontitle{display:block; max-width:60%; margin:0 auto 80px; text-align:center;}
+.sectiontitle *{margin:0;}
+
+
+/* el team */
+.team{}
+.team li:last-child{margin-bottom:0;}
+.team figure{display:block; text-align:center;}
+.team figure *{margin:0; padding:0;}
+.team figure a{}
+.team figure img{}
+.team figure figcaption{padding:20px 10px; line-height:1;}
+.team figure strong{display:block; margin-bottom:6px; font-size:1.4rem; font-weight:400;}
+.team figure em{display:block; font-style:normal; font-size:.8rem;}
+
+
+/* Sidebar Navigation */
+.sidebar nav{display:block; width:100%;}
+.sidebar nav li{margin:0 0 3px 0; padding:0;}
+.sidebar nav a{display:block; position:relative; margin:0; padding:5px 10px 5px 15px; text-decoration:none; border:solid; border-width:0 0 1px 0;}
+.sidebar nav a::after{top:10px; left:5px; content:"\f0da";}
+.sidebar nav ul ul a{padding-left:35px;}
+.sidebar nav ul ul a::after{left:25px;}
+.sidebar nav ul ul ul a{padding-left:55px;}
+.sidebar nav ul ul ul a::after{left:45px;}
+
+
+/* Colours
+--------------------------------------------------------------------------------------------------------------- */
+body{color:#A5A6AA; background-color:#030973;}
+.imgover:hover::before{background-color:rgba(21, 5, 90, 0.5);}
+
+/* Rows */
+.row0{}
+.row1{border-color:rgba(17, 5, 128, 0.884);}
+.row2{color:#000000; background-color:#F4F4F4;}
+.row3{color: #030973; background-color:#030973;}
+.row4{color:#030973; background-color:#030973;}
+.row5, .row5 a{color:#030973; background-color:#030973;}
+
+.team figure, .latest article{box-shadow:0px 0px 15px rgba(2, 4, 110, 0.363);}
+.team figure:hover{color:#FFFFFF; background-color:#030973;}
+
+
+
+
+/* Media Queries
+--------------------------------------------------------------------------------------------------------------- */
+@-ms-viewport{width:device-width;}
+
+
+/* Max Wrapper Width - Laptop, Desktop etc.
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width:1140px){
+	.hoc{max-width:1140px;}
+}
+
+@media screen and (min-width:978px) and (max-width:1140px){
+	.hoc{max-width:95%;}
+}
+
+
+/* Mobile Devices
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (max-width:978px){
+	.hoc{max-width:90%;}
+
+	#topbar{}
+
+	#header{padding:30px 0;}
+	#header #logo{margin-top:0;}
+
+	#mainav{}
+	#mainav ul{display:none;}
+	#mainav form{display:block; margin-top:2px;}
+
+	#breadcrumb{}
+
+	.container{}
+	#comments input[type="reset"]{margin-top:10px;}
+	.pagination li{display:inline-block; margin:0 5px 5px 0;}
+
+	#footer{}
+
+	#copyright{}
+	#copyright p:first-of-type{margin-bottom:10px;}
+}
+
+@media screen and (max-width:750px){
+	.imgl, .imgr{display:inline-block; float:none; margin:0 0 10px 0;}
+	.fl_left, .fl_right{display:block; float:none;}
+	.group .group > *:last-child, .clear .clear > *:last-child, .clear .group > *:last-child, .group .clear > *:last-child{margin-bottom:0;}/* Experimental - Needs more testing in different situations, stops double margin when stacking */
+	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto; margin:0 0 30px 0;}
+
+	#topbar{text-align:center;}
+	#topbar > div:first-of-type ul{margin:0 0 10px 0;}
+	#topbar #searchform{display:none;}/* This is personal preference - remove if not required */
+
+	#header{text-align:center;}
+	#header #logo{margin:0 0 15px 0;}
+
+	#pageintro article, #pageintro article p{max-width:none;}
+	#pageintro .heading{font-size:2rem;}
+
+	.sectiontitle{max-width:none;}
+	
+	#introblocks > ul{margin:0 auto 80px;}
+	#introblocks > ul, #latest article{max-width:348px;}/* Restrict the width to the one_third grid element */
+	.team figure{max-width:300px;}/* Restrict the width to the image width */
+	#introblocks > ul > li, #overview li:nth-last-child(-n+3){margin-bottom:50px;}
+	#introblocks > ul > li:last-child, #overview li:last-child{margin-bottom:0;}
+	#splitfifty > div:nth-of-type(2) article{display:block; float:none; width:100%;}
+
+	#footer .latestimg > li, #footer .latestimg > li:nth-last-child(-n+3){display:inline-block; float:none; width:auto; margin:0 5% 5% 0;}
+	#footer .latestimg > li:last-child{margin-bottom:0;}
+	#footer .latestimg > li img{width:auto;}
+}
+
+@media screen and (min-width:450px) and (max-width:750px){
+	#stats > li{width:50%; margin-bottom:50px;}
+	#stats > li:nth-child(even){border:none;}
+	#stats > li:nth-last-child(-n+2){margin-bottom:0;}
+}
+
+@media screen and (max-width:450px){
+	#topbar > div:first-of-type ul li{display:block; margin:0;}
+
+	#splitfifty > div:nth-of-type(2) article, #testimonials ul, #latest article .excerpt{padding:20px;}
+	#stats > li{float:none; width:100%; margin-bottom:25px; padding-bottom:25px;}
+	#stats > li, #stats > li:nth-child(even){border-width:0 0 1px 0;}
+	#stats > li:last-child{margin:25px 0 0 0; padding-bottom:0;}
+}
