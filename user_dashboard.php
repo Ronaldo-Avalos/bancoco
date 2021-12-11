@@ -170,6 +170,7 @@
 					success: function( result ) {
 						alert(result);
 						forceDivUpdate();
+						refreshTable();
 					}
 				});
 			}
@@ -212,6 +213,8 @@
 						refreshTable();
 					}else{
 						$( "#btnOperations" ).html("<p style='color:black; padding-top:20px; text-align:center; width:200px;'>Esta cuenta está desactivada</p>")
+						$('#tblEstCuenta tbody').html("");
+						refreshTable();
 					}
 				}
 			});
