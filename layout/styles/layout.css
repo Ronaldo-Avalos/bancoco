@@ -74,6 +74,38 @@ body{color:#A5A6AA; background-color:#030973;}
 
 
 
+body{color:#ffffff; background-color:#ffffff;}
+a{color:#FBAB45;}
+a:active, a:focus{background:transparent !important;}/* IE10 + 11 Bugfix - prevents grey background */
+hr, .borderedbox{border-color:#ffffff;}
+label span{color:#FF0000; background-color:inherit;}
+input:focus, textarea:focus, *:required:focus{border-color:#FBAB45 !important;}
+
+
+
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#FBAB45; border-color:#FBAB45;}
+.btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
+
+.imgover:hover::before{background-color:rgba(255, 255, 255, 0.5);/* #FBAB45 */}
+
+
+
+/* Content Area */
+#overview article a{color:inherit;}
+#overview article:hover a{color:#FBAB45;}
+
+
+
+#stats > li{border-color:#D7D7D7;}
+#stats > li i{color:rgba(0,0,0,.2);}
+#stats > li:hover i{color:rgba(0,0,0,.6);}
+
+
+
+
+#latest article .excerpt{border-color:#ffffff;}
+
+
 
 /* Media Queries
 --------------------------------------------------------------------------------------------------------------- */
@@ -160,4 +192,17 @@ body{color:#A5A6AA; background-color:#030973;}
 	#stats > li{float:none; width:100%; margin-bottom:25px; padding-bottom:25px;}
 	#stats > li, #stats > li:nth-child(even){border-width:0 0 1px 0;}
 	#stats > li:last-child{margin:25px 0 0 0; padding-bottom:0;}
+}
+
+/* Other
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (max-width:650px){
+	.scrollable{display:block; width:100%; margin:0 0 30px 0; padding:0 0 15px 0; overflow:auto; overflow-x:scroll;}
+	.scrollable table{margin:0; padding:0; white-space:nowrap;}
+
+	.inline li{display:block; margin-bottom:10px;}
+	.pushright li{margin-right:0;}
+
+	.font-x2{font-size:1.6rem;}
+	.font-x3{font-size:1.8rem;}
 }
