@@ -1,4 +1,10 @@
-<?php include 'lib_php/conection.php';?>
+<?php include 'lib_php/conection.php';
+  if(isset($_SESSION["iduser"])){
+		if($_SESSION["iduser"] != NULL){
+      header("Location: user_dashboard.php");    
+    }
+	}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -69,7 +75,7 @@
         <input type="submit" value="Entrar" class="btn-solid-sm">
 
         <div class="signup_link">
-          No tienes cuenta? <a href="index.php">Registrate</a>
+          No tienes cuenta? <a href="crear_usuario.html">Registrate</a>
         </div>
       </form>
 
