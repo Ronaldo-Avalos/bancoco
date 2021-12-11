@@ -170,7 +170,6 @@
 					success: function( result ) {
 						alert(result);
 						forceDivUpdate();
-						refreshTable();
 					}
 				});
 			}

@@ -62,7 +62,7 @@
 
 		if ($countRow > 0) {
 			echo "<script>alert('Transferencia realizada correctamente')
-			window.location.href='../pages/transfer/transfer.php'</script>";
+			window.location.href='../user_dashboard.php'</script>";
 		}else{
 			echo "<script>alert('Error en la transferencia')
 			window.location.href='../user_dashboard.php'</script>";
