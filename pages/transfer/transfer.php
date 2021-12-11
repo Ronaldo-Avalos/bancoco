@@ -40,7 +40,7 @@
 				</li>
 			</ul>
 			<span class="nav-item">
-				<a  class="btn-solid-sm" href="../../index.php">Regresar</a>
+				<a  class="btn-solid-sm" href="../../user_dashboard.php">Regresar</a>
 			</span>
 		</div> 
 	</div>
