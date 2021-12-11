@@ -46,7 +46,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fontawesome-all.min.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
-    <link href="css/styles_User.css" rel="stylesheet">
+    <link href="css/styles_User_retiro.css" rel="stylesheet">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
 <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
