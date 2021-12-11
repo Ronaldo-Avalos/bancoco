@@ -76,7 +76,7 @@
         //hace conexion a la bd
         global $Pcon, $consulta;
         //hace consulta de la cuenta
-		$sql = 'SELECT * FROM cat_clientes WHERE usuario = '.$Pusuario;
+		$sql = 'SELECT * FROM cat_clientes WHERE usuario = "'.$Pusuario.'"';
 		//returna el resultado de select
         return $Pcon->query($sql);
     }
@@ -85,7 +85,7 @@
         //hace conexion a la bd
         global $Pcon, $consulta;
         //hace consulta del telefono
-		$sql = 'SELECT * FROM cat_clientes WHERE telefono = '.$Ptelefono;
+		$sql = 'SELECT * FROM cat_clientes WHERE telefono = "'.$Ptelefono.'"';
 		//returna el resultado de select
         return $Pcon->query($sql);
     }
@@ -102,11 +102,13 @@
 	//Se hacen las comprobaciones
 
 	$resultado = revisar_usuario($Pusuario);
+	echo("Error description: " . $Pcon->error);
 	$row = $resultado->fetch_assoc();
 	if($row!=NULL){
 		$valida = false;
 		echo "<h2> Ya se tiene ese usuario registrado </h2>";
 	}
+	
 
 	$resultado = revisar_telefono($Ptelefono);
 	$row = $resultado->fetch_assoc();
