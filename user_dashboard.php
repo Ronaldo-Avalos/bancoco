@@ -78,7 +78,7 @@
             </select>
 			</div>
 			<div style="width: 30%;">
-				<a href="#" id="btnNewAccount" class="btn btn-outline-secondary btn-sm"><strong>+</strong></a >
+				<a href="crear_cuenta.php" id="btnNewAccount" class="btn btn-outline-secondary btn-sm"><strong>+</strong></a >
 			</div>
 				</div>
         </div>
@@ -198,7 +198,7 @@
 					var results = $.parseJSON(result);
 					$( "#accountMoney" ).html(formatter.format(results[0]));
 					if(results[1] == true){
-									$( "#btnOperations" ).html("<div class='botones'><a href='./pages/transfer/transfer.php' class='btn'>Transferencia</a ><a href='#' class='btn'>Retirar en efectivo</a ><a href='#' class='btn' onclick='handleBtnNipClick()'>Cambiar NIP</a ></div> <div style='width: 200px; margin: 0 auto;'>  <a href='#' class='btn btn-danger' onclick='handleBtnDisableClick()' style = 'width: 100%;'>Cerrar Cuenta</a ></div>");
+									$( "#btnOperations" ).html("<div class='botones'><a href='./pages/transfer/transfer.php' class='btn'>Transferencia</a ><a href='retiro_efectivo.php' class='btn'>Retirar en efectivo</a ><a href='#' class='btn' onclick='handleBtnNipClick()'>Cambiar NIP</a ></div> <div style='width: 200px; margin: 0 auto;'>  <a href='#' class='btn btn-danger' onclick='handleBtnDisableClick()' style = 'width: 100%;'>Cerrar Cuenta</a ></div>");
 					}else{
 						$( "#btnOperations" ).html("<p style='color:black; padding-top:20px; text-align:center; width:200px;'>Esta cuenta está desactivada</p>")
 					}
