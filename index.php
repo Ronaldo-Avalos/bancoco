@@ -188,7 +188,7 @@
                         <div class="section-title">¿QUIENES SOMOS?</div>
                         <h2>UN BANCO MUY FRESCO MI PANA</h2>
                         <p>Somos una identidad bancaria con potencial de crecimiento en las areas de desarrollo financiero.</p>
-                        <a class="btn-solid-reg" href="#">Conocenos más</a>
+                        <a class="btn-solid-reg" href="equipo.html">Conocenos más</a>
                     </div> 
                 </div> 
             </div> 
