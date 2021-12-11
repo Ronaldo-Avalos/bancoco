@@ -2,6 +2,8 @@
 
 include '../../lib_php/conection.php';
 
+	$table = exec('../../lib_php/estCuentaTableScript.php');
+	
 	session_start();
 
 	if(empty($_SESSION['iduser']) || empty($_SESSION['selectedAccount'])) {
@@ -10,6 +12,16 @@ include '../../lib_php/conection.php';
 
 	require_once __DIR__ . './../../vendor/autoload.php';
 	$mpdf = new \Mpdf\Mpdf();
+
+	//obtenemos los datos de el usuario
+	$sql="SELECT nombres, correo, telefono FROM cat_clientes WHERE id_cliente = ".$_SESSION['iduser']."";
+		$result=mysqli_query($con,$sql);
+		$row = $result->fetch_row();
+
+	$sql="SELECT COUNT(id_movimiento) FROM movimientos WHERE cuenta_origen =  ".$_SESSION['selectedAccount']." OR cuenta_receptora = ".$_SESSION['selectedAccount'];
+	$count=mysqli_query($con,$sql);
+	$fila = $count->fetch_row();
+  	$countVal = $fila[0];
 
 	$texto_pdf = '
 	
@@ -55,23 +67,23 @@ include '../../lib_php/conection.php';
 						Cliente:
 					</td>
 					<td width="298">
-						H&eacute;ctor Camberos
+						'.$row[0].'
 					</td>
 				</tr>
 				<tr>
 					<td width="106">
-						RFC:
+						Correo:
 					</td>
 					<td width="298">
-						MiRFC
+						'.$row[1].'
 					</td>
 				</tr>
 				<tr>
 				<td width="106">
-						Tel&eacute;fono:
+						Teléfono:
 					</td>
 					<td width="298">
-						(312) 152 -6873
+						'.$row[2].'
 					</td>
 				</tr>
 			</tbody>
@@ -85,7 +97,7 @@ include '../../lib_php/conection.php';
 						Resumen del mes:
 					</td>
 					<td width="147">
-						Diciembre
+						Todos
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +105,7 @@ include '../../lib_php/conection.php';
 						Fecha:
 					</td>
 					<td width="147">
-						16/3/2012
+						'.date("d/m/Y")."<br>".'
 					</td>
 				</tr>
 				<tr>
@@ -101,7 +113,7 @@ include '../../lib_php/conection.php';
 						No. Movimientos:
 					</td>
 					<td width="147">
-						5
+						'.$countVal.'
 					</td>
 				</tr>
 				<tr>
@@ -109,7 +121,7 @@ include '../../lib_php/conection.php';
 						Saldo
 					</td>
 					<td width="147">
-						$1000
+						$'.$_SESSION['selectedAccountMoney'].'
 					</td>
 				</tr>
 				<tr>
@@ -119,7 +131,7 @@ include '../../lib_php/conection.php';
 				</tr>
 				<tr>
 					<td colspan="2" width="300">
-						3123 1332 9583 8343
+						'.$_SESSION['selectedAccount'].'
 					</td>
 				</tr>
 			</tbody>
@@ -157,26 +169,11 @@ include '../../lib_php/conection.php';
 					<td width="87">
 						SALDO
 					</td>
-				</tr>
-				<tr>
-					<td width="85">
-						19/12/2021
-					</td>
-						<td width="381">
-					Retiro del cajero autom&aacute;tico
-						</td>
-					<td width="78">
-						$300
-					</td>
-						<td width="90">
-					$0
-						</td>
-					<td width="87">
-						$700
-					</td>
-				</tr>
+				</tr>';
 
-			<tr>
+			$texto_pdf = $texto_pdf.$_SESSION['table'];
+				
+			$texto_pdf = $texto_pdf.'<tr>
 			<td width="85">
 			&nbsp;
 			</td>
@@ -190,7 +187,7 @@ include '../../lib_php/conection.php';
 			TOTAL:
 			</td>
 			<td width="87">
-			$2,000
+			$'.$_SESSION['selectedAccountMoney'].'
 			</td>
 			</tr>
 			</tbody>
@@ -206,7 +203,8 @@ include '../../lib_php/conection.php';
 		</body>
 		</html>
 	';
-
+	
+	echo $table;
 	$mpdf->WriteHTML($texto_pdf);
 	$mpdf->Output('ESTADO DE CUENTA.pdf', 'I');
 ?>

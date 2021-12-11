@@ -17,7 +17,7 @@
 	
 	if ((int)$queryValue > 0 ){
 		
-		$sql="SELECT concepto, cuenta_origen, cuenta_receptora, fecha, monto FROM movimientos WHERE cuenta_origen = ".$_SESSION['selectedAccount']." OR cuenta_receptora = ".$_SESSION['selectedAccount']." order by fecha asc";
+		$sql="SELECT concepto, cuenta_origen, cuenta_receptora, DATE(fecha), monto FROM movimientos WHERE cuenta_origen = ".$_SESSION['selectedAccount']." OR cuenta_receptora = ".$_SESSION['selectedAccount']." order by fecha asc";
 		
 		if ($result=mysqli_query($con,$sql))
 		{

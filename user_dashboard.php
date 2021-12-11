@@ -186,8 +186,15 @@
 					for (var i = 0; i < tableArray.length; i++) {
 					   $('#tblEstCuenta tbody').append('<tr><td>'+tableArray[i][0]+'</td><td>'+tableArray[i][1]+'</td><td>'+tableArray[i][2]+'</td><td>'+tableArray[i][3]+'</td><td>'+tableArray[i][4]+'</td></tr>')
 					}
+
+					$.ajax({
+					url: "lib_php/storeTable.php",
+					data: {
+						table: $('#tblEstCuenta tbody').html()
+					}
+					});
 				}
-    	});
+    		});
 			
 		}
 		
