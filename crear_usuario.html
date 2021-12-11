@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<HTML>
+<head>
+    <meta charset="utf-8"/>
+    <META NAME="Author" CONTENT="Oscar Dalí Nattaniel Romero Raygoza">
+    <META NAME="Rights" CONTENT="Oscar Dalí Nattaniel Romero Raygoza">
+    <META NAME="Description" CONTENT="Esta es la pagina de presupuesto.">
+    <META NAME="Keywords" CONTENT="javascript, curso, diseño web, programacion, México">
+    <META NAME="Date" CONTENT="Monday, 08 November, 2021">
+    <title> Apertura de cuenta </title>
+    <!-- styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/fontawesome-all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style_login.css">
+
+
+</head>
+
+<body>
+    <nav id="navbarExample" class="navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand logo-image" href="../index.php"><img src="images/logo.svg" alt="alternative"></a> 
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php #contacto">Tengo un problema</a>
+                    </li>
+                </ul>
+                <span class="nav-item">
+                    <a  class="btn-solid-sm" href="index.php">Regresar</a>
+                </span>
+            </div> 
+        </div>
+    </nav> <!--Fin de Nav -->
+    <div class="center-register">
+      <h1>Crea tu cuenta</h1>
+      <form method="POST" action="abrir_usuario.php" name="crar_usuario">
+          <table>
+            <tr>
+              <tr>
+                <div class="txt_field1 nombre1">
+                  <input type="text" for="name" id="name" name="name" required>
+                  <span></span>
+                  <label>Nombre(s)</label>
+                </div>
+              </tr>
+            </tr>
+            
+            <tr>
+              <th>
+                  <div class="txt_field1">
+                    <input type="text" for="ape_pat" id="ape_pat" name="ape_pat" required>
+                    <span></span>
+                    <label>Apellido Paterno</label>
+                  </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <input for="ape_mat" id="ape_mat" name="ape_mat" required>
+                  <span></span>
+                  <label>Apellido Materno</label>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div class="txt_field1">
+                  <input type="text" for="usuario" id="usuario"  name="usuario"required>
+                  <span></span>
+                  <label>Usuario</label>
+                </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <input type="password" for="contra1" id="contra1" name="contra1" required>
+                  <span></span>
+                  <label>Contraseña</label>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div class="txt_field1">
+                  <input type="text"  name="correo" id="correo" required>
+                  <span></span>
+                  <label>Correo electronico</label>
+                </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <input type="text" for="telefono" id="telefono" name="telefono" required >
+                  <span></span>
+                  <label>Número de teléfono</label>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <div >
+                  <label style="color: #adadad; font-size: 15px;" for="sexo">Sexo</label><br>
+              <input type="radio" id="sexo" name="sexo" value="0" checked><label style="color: #adadad; font-size: 15px;" for="sexohombre">Hombre</label>
+              <input type="radio" id="sexo" name="sexo" value="1"><label style="color: #adadad; font-size: 15px;" for="sexomujer">Mujer</label><br>
+                </div>
+              </th>
+              <th>
+                <div class="txt_field1">
+                  <p style="color: #adadad; font-size: 15px;">Fecha de nacimiento</p>
+                  <input style="color: #adadad; font-size: 15px;" type="date" name="fecha" id="fecha" required>
+                  
+                </div>
+              </th>
+            </tr>
+
+          </table>
+         
+          <input type="submit" value="Crear Cuenta" class="btn-solid-sm">
+          <div class="signup_link">
+            Ya tienes cuenta? <a href="login.html">inicia sesión</a>
+          </div>
+    </form>
+    
+    
+    
+</body>
+</HTML>
+
+      <!-- <label for="ape_pat">Primer Apellido</label><br>
+        <input type="text" id="ape_pat" name="ape_pat"><br>
+        <label for="ape_mat">Segundo Apellido</label><br>
+        <input type="text" id="ape_mat" name="ape_mat"><br>
+        <label for="usuario">Usuario</label><br>
+        <input type="text" id="usuario" name="usuario"><br>
+        <label for="contra1">Contraseña</label><br>
+        <input type="password" id="contra1" name="contra1"><br>
+        <label for="telefono">Telefono</label><br>
+        <input type="text" id="telefono" name="telefono"><br>
+        <label for="sexo">Sexo</label><br>
+        <input type="radio" id="sexo" name="sexo" value="0" checked><label for="sexohombre">Hombre</label>
+        <input type="radio" id="sexo" name="sexo" value="1"><label for="sexomujer">Mujer</label><br>
+        <label for="fecha">Fecha de nacimiento</label><br>
+        <input type="date" name="fecha" id="fecha"><br>
+        <label for="correo">Correo electronico</label><br>
+        <input type="text" name="correo" id="correo"><br>
+        <input type="submit" value="Crear una cuenta."> -->

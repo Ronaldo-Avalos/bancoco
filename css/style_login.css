@@ -210,3 +210,72 @@ line-height: 1rem;
 text-decoration: none;
 }
 
+.center-register {
+	position: relative;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+.center-register h1{
+  text-align: center;
+  margin-top: 20%;
+  
+}
+.center-register form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+form .txt_field1 {
+	position: relative;
+	border-bottom: 2px solid #adadad;
+	margin: 15px 19px;
+}
+form .txt_field1{
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 15px 0;
+}
+.txt_field1 input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 9 px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.txt_field1 label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 15px;
+  pointer-events: none;
+  transition: .5s;
+}
+.txt_field1 span::before{
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #2691d9;
+  transition: .5s;
+}
+.txt_field1 input:focus ~ label,
+.txt_field1 input:valid ~ label{
+  top: -5px;
+  color: #2691d9;
+}
+.txt_field1 input:focus ~ span::before,
+.txt_field1 input:valid ~ span::before{
+  width: 100%;
+}
+
