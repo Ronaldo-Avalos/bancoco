@@ -85,7 +85,7 @@
         <div class="sal">
           <h5>Saldo</h5>   <!--CAMBIAR-->
           <p id="accountMoney" class="money" style="margin-bottom: 0px"></p>  <!--CAMBIAR-->
-		  <a href="#" class="btn btn-primary" style="width: 200px; border-radius: 0px 0px 17px 17px;">Estado de cuenta</a >
+		  <a href='./pages/estadocuenta/estado_de_cuenta.php' class="btn btn-primary" style="width: 200px; border-radius: 0px 0px 17px 17px;">Estado de cuenta</a >
         </div>
       <div id="btnOperations">        
       
@@ -93,7 +93,7 @@
   </div>
       <dv class="tabla">
         <div class="tab">
-          <table class="table table-striped">
+          <table id="tblEstCuenta" class="table table-striped" style="height: 50px; overflow-y: scroll;">
 		  <thead> 
 		  <th>Fecha</th>
 		  <th>Concepto</th>
@@ -102,19 +102,6 @@
 		  <th>Saldo</th>
           </thead>
           <tbody>
-              <tr>
-                <th scope="row">fecha</th>
-                <td>Movimiento</td>  <!--CAMBIAR-->
-              </tr>
-              <tr>
-                <th scope="row">fecha</th>
-                <td>Movimiento</td>  <!--CAMBIAR-->
-              </tr>
-              <tr>
-                <th scope="row">fecha</th>
-                <td >Movimiento</td>  <!--CAMBIAR-->
-                
-              </tr>
             </tbody>
             </table>
       </div>
@@ -188,6 +175,22 @@
 			}
 		}
 		
+		function refreshTable(){
+			$('#tblEstCuenta tbody').html("");
+			$.ajax({
+				url: "lib_php/estCuentaTableScript.php",
+				success: function( result ) {
+					
+					var tableArray = JSON.parse(result);
+					
+					for (var i = 0; i < tableArray.length; i++) {
+					   $('#tblEstCuenta tbody').append('<tr><td>'+tableArray[i][0]+'</td><td>'+tableArray[i][1]+'</td><td>'+tableArray[i][2]+'</td><td>'+tableArray[i][3]+'</td><td>'+tableArray[i][4]+'</td></tr>')
+					}
+				}
+    	});
+			
+		}
+		
 		$('#combo_cuenta').change(function() {
 			$.ajax({
 				url: "lib_php/getAccountData.php",
@@ -199,6 +202,8 @@
 					$( "#accountMoney" ).html(formatter.format(results[0]));
 					if(results[1] == true){
 									$( "#btnOperations" ).html("<div class='botones'><a href='./pages/transfer/transfer.php' class='btn'>Transferencia</a ><a href='#' class='btn'>Retirar en efectivo</a ><a href='#' class='btn' onclick='handleBtnNipClick()'>Cambiar NIP</a ></div> <div style='width: 200px; margin: 0 auto;'>  <a href='#' class='btn btn-danger' onclick='handleBtnDisableClick()' style = 'width: 100%;'>Cerrar Cuenta</a ></div>");
+						
+						refreshTable();
 					}else{
 						$( "#btnOperations" ).html("<p style='color:black; padding-top:20px; text-align:center; width:200px;'>Esta cuenta está desactivada</p>")
 					}

@@ -25,21 +25,14 @@ include '../../lib_php/conection.php';
 			  box-sizing: border-box;
 			}
 
-			.row {
-			  margin-left:-5px;
-			  margin-right:-5px;
+			.right {
+			  float: right;
+			  width: 40%;
 			}
 
-			.column {
+			.left {
 			  float: left;
-			  padding: 5px;
-			}
-
-			/* Clearfix (clear floats) */
-			.row::after {
-			  content: "";
-			  clear: both;
-			  display: table;
+			  width: 50%;
 			}
 
 			table, th, td{
@@ -50,14 +43,11 @@ include '../../lib_php/conection.php';
 
 			</style>
 
-
-
 		<body>
-			<p><br />ESTADO DE CUENTA</p>
+			<p style="margin-bottom: 0px;">ESTADO DE CUENTA</p>
 			<hr style="width:720px;text-align:left;margin-left:0">
-			<p>&nbsp;</p>
 			<div class="row">
-			<div class="column">
+			<div class="left">
 				<table>
 			<tbody>
 				<tr>
@@ -87,7 +77,7 @@ include '../../lib_php/conection.php';
 			</tbody>
 		</table>
 			</div>
-			<div class="column">
+			<div class="right">
 				<table>
 			<tbody>
 				<tr>
