@@ -1,6 +1,6 @@
 <?php
 
-	header('refresh:5, url=crear_usuario.php');
+	header('refresh:5, url=crear_usuario.html');
 
 	$Pcon = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
 	//$Pcon = mysqli_connect("localhost","root","","bancoco") or die ("No se encuentra la base de datos");
@@ -144,7 +144,7 @@
 		
 		echo "<br><br><br><h2>El usuario se ha creado con exito</h2>";
 
-		header('refresh:5, url=login.html');
+		header('refresh:5, url=login.php');
 
 		mysqli_close($Pcon);
     }
