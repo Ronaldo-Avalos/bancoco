@@ -14,16 +14,15 @@
     $Pid_usuario = $_SESSION["iduser"];
 
     // Se hace conexion con la base de datos
-    //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
-    $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb") or die("Error de conexion");
-
+    //$con = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
+    include 'lib_php/conection.php';
     //funcion que saca las cuentas del usuario
     function sacar_cuentas($Pid_usuario){
-        global $conect, $consulta;
+        global $con, $consulta;
         //hace consulta de la cuenta
 		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = '.$Pid_usuario.' AND activa = 1';
 		//returna el resultado de select
-        return $conect->query($sql);
+        return $con->query($sql);
     }
 
     //se sacan los resultados de la consulta
@@ -83,7 +82,7 @@
                     </li>
                 </ul>
                 <span class="nav-item">
-                    <a  target="" class="btn-solid-sm" href="Login/login.php">Acceso</a>
+                    <a  target="" class="btn-solid-sm" href="user_dashboard.php">Regresar</a>
                 </span>
             </div> 
         </div>

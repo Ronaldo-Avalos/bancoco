@@ -52,22 +52,27 @@
 			exit;
 		}
 		
-		$call = mysqli_prepare($con, 'CALL transfer(?, ?, ?, ?, @countRow)');
-		mysqli_stmt_bind_param($call, 'ssds', $_SESSION['selectedAccount'], $cuenta_destino, $importe, $concepto);
-		mysqli_stmt_execute($call);
-
-		$select = mysqli_query($con, 'SELECT @countRow');
-		$result = mysqli_fetch_assoc($select);
-		$countRow = $result['@countRow'];
-
-		if ($countRow > 0) {
-			echo "<script>alert('Transferencia realizada correctamente')
-			window.location.href='../user_dashboard.php'</script>";
+		if((float)$importe < 0 ){
+			echo "<script>alert('El monto de la tranferencia no puede ser menor a cero')
+			window.location.href='../pages/transfer/transfer.php'</script>";
+			exit;
 		}else{
-			echo "<script>alert('Error en la transferencia')
-			window.location.href='../user_dashboard.php'</script>";
+            $call = mysqli_prepare($con, 'CALL transfer(?, ?, ?, ?, @countRow)');
+    		mysqli_stmt_bind_param($call, 'ssds', $_SESSION['selectedAccount'], $cuenta_destino, $importe, $concepto);
+    		mysqli_stmt_execute($call);
+    
+    		$select = mysqli_query($con, 'SELECT @countRow');
+    		$result = mysqli_fetch_assoc($select);
+    		$countRow = $result['@countRow'];
+    
+    		if ($countRow > 0) {
+    			echo "<script>alert('Transferencia realizada correctamente')
+    			window.location.href='../user_dashboard.php'</script>";
+    		}else{
+    			echo "<script>alert('Error en la transferencia')
+    			window.location.href='../user_dashboard.php'</script>";
+    		}
 		}
-		
 	}else{
 		echo "<script>alert('La cuenta de origen no te pertenece')
 			window.location.href='../pages/transfer/transfer.php'</script>";

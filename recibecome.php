@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-$link = mysqli_connect('localhost','root','');
-$db = mysqli_select_db($link,'tektorco_bancocodb');
+include 'lib_php/conection.php';
+$db = mysqli_select_db($con,'tektorco_bancocodb');
 
 $nombre = $_POST['nombre'];
 $email = $_POST['email'];
@@ -39,7 +39,7 @@ $mensaje =$_POST['mensaje'];
   if ($valida == true)
    {
     $date = date("d-m-Y H:i:s");
-    $sql = mysqli_query($link, "INSERT INTO servico_cliente (nombre, email, asunto, mensaje, fecha y hora) VALUE ('$nombre','$email','$asunto','$mensaje','$date')");
+    $sql = mysqli_query($con, "INSERT INTO servico_cliente (nombre, email, asunto, mensaje, fecha y hora) VALUE ('$nombre','$email','$asunto','$mensaje','$date')");
     
     if (! $sql) {
  

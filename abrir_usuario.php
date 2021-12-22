@@ -1,60 +1,49 @@
 <?php
+	include 'lib_php/conection.php';
 
-	header('refresh:5, url=crear_usuario.html');
-
-	$Pcon = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
-	//$Pcon = mysqli_connect("localhost","root","","bancoco") or die ("No se encuentra la base de datos");
+	function handleError($error){
+		echo "<script>alert('.$error.')
+		window.location.href='crear_usuario.html'</script>";
+		exit;
+	}
 
 	$valida = true;
 	//se comprueba que todos los campos esten llenos
     if(empty($_POST['name'])){
-		echo "<b>No se especifico Nombre</b><br>";
-		$valida = false;
+		handleError('No se especificó Nombre');
 	}
 
 	if(empty($_POST['ape_mat'])){
-		echo "<b>No se especifico Segundo apellido</b><br>";
-		$valida = false;
+		handleError('No se especificó segundo apellido');
 	}
 
 	if(empty($_POST['telefono'])){
-		echo "<b>No se especifico Numero de telefono</b><br>";
-		$valida = false;
+		handleError('No se especificó numero de teléfono');
 	}
 
 	if(empty($_POST['ape_pat'])){
-		echo "<b>No se especifico Primer apellido</b><br>";
-		$valida = false;
+		handleError('No se especificó el primer apellido');
 	}
 
 	if(empty($_POST['usuario'])){
-		echo "<b>No se especifico Nombre de usuario.</b><br>";
-		$valida = false;
+		handleError('No se especificó nombre de usuario.');
 	}
 
     if(empty($_POST['contra1'])){
-		echo "<b>No se especifico Contraseña</b><br>";
-		$valida = false;
+		handleError('No se especificó contraseña');
 	}
 
 	if(empty($_POST['correo'])){
-		echo "<b>No se especifico Correo electronico.</b><br>";
-		$valida = false;
+		handleError('No se especificó correo electronico.');
 	}
 
 	if(empty($_POST['fecha'])){
-		echo "<b>No se escribio la Fecha de nacimiento.</b><br>";
-		$valida = false;
+		handleError('No se escribió la fecha de nacimiento.');
 	}
 
 	if (!strchr($_POST['correo'],"@") || !strchr($_POST['correo'],".")){
-        echo "<b>No es un correo valido</b><br/>";
-        $valida = false;
+		handleError('No es un correo valido');
     }
-
-	if($valida == false){
-		exit();
-	}
 
 	//se crean las variables y se empieza a comprobar que telefono, correo y usuario no existan
 
@@ -74,54 +63,50 @@
 
 	function revisar_usuario($Pusuario){
         //hace conexion a la bd
-        global $Pcon, $consulta;
+        global $con, $consulta;
         //hace consulta de la cuenta
 		$sql = 'SELECT * FROM cat_clientes WHERE usuario = "'.$Pusuario.'"';
 		//returna el resultado de select
-        return $Pcon->query($sql);
+        return $con->query($sql);
     }
 
 	function revisar_telefono($Ptelefono){
         //hace conexion a la bd
-        global $Pcon, $consulta;
+        global $con, $consulta;
         //hace consulta del telefono
 		$sql = 'SELECT * FROM cat_clientes WHERE telefono = "'.$Ptelefono.'"';
 		//returna el resultado de select
-        return $Pcon->query($sql);
+        return $con->query($sql);
     }
 
 	function revisar_correo($Pcorreo){
         //hace conexion a la bd
-        global $Pcon, $consulta;
+        global $con, $consulta;
         //hace consulta del correo
 		$sql = 'SELECT * FROM cat_clientes WHERE correo = "'.$Pcorreo.'"';
 		//returna el resultado de select
-        return $Pcon->query($sql);
+        return $con->query($sql);
     }
 
 	//Se hacen las comprobaciones
 
 	$resultado = revisar_usuario($Pusuario);
-	echo("Error description: " . $Pcon->error);
 	$row = $resultado->fetch_assoc();
 	if($row!=NULL){
-		$valida = false;
-		echo "<h2> Ya se tiene ese usuario registrado </h2>";
+		handleError('Ya se tiene ese usuario registrado');
 	}
 	
 
 	$resultado = revisar_telefono($Ptelefono);
 	$row = $resultado->fetch_assoc();
 	if($row!=NULL){
-		$valida = false;
-		echo "<h2> El telefono ya ha sido registrado</h2>";
+		handleError('El telefono ya ha sido registrado');
 	}
 
 	$busqueda = revisar_correo($Pcorreo);
 	$row = $busqueda->fetch_assoc();
 	if($row!=NULL){
-		$valida = false;
-		echo "<h2> El correo ya ha sido registrado</h2>";
+		handleError('El correo ya ha sido registrado');
 	}
 
 	//se revisa la edad
@@ -130,24 +115,20 @@
 	$fecha_hoy = new DateTime("now");
 	$tiempo = $fecha_nac->diff($fecha_hoy);
 	if($tiempo->y < 18){
-		echo "<h2>Es necesario ser mayor de 18 para tener una cuenta bancaria.</h2>";
-		$valida = false;
+		handleError('Es necesario ser mayor de 18 para tener una cuenta bancaria.');
 	}
 
 
     if ($valida == true){
 
 		//Se envian los datos con la funcion crear_usuario()
-		$stmt = mysqli_prepare($Pcon, "CALL crear_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, @countRow)") or die(mysqli_error());
+		$stmt = mysqli_prepare($con, "CALL crear_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, @countRow)") or die(mysqli_error());
 		mysqli_stmt_bind_param($stmt, 'ssssissss', $Pnombres, $Pprimer_apellido, $Psegundo_apellido, $Ptelefono, $Psexo, $Pfecha_nacimiento, $Pcorreo, $Pusuario, $Ppass);
 		mysqli_stmt_execute($stmt);
 
-		//Para errores:	echo("Error description: " . $Pcon->error);
-		
-		echo "<br><br><br><h2>El usuario se ha creado con exito</h2>";
+		mysqli_close($con);
 
-		header('refresh:5, url=login.php');
-
-		mysqli_close($Pcon);
+		echo "<script>alert('El usuario se ha creado con exito')
+		window.location.href='login.php'</script>";
     }
 ?>

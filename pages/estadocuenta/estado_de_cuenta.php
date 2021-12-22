@@ -47,12 +47,18 @@ include '../../lib_php/conection.php';
 			  width: 50%;
 			}
 
-			table, th, td{
+			table{
 			  border-collapse: collapse;
-			  border-spacing: 0;
-			  border: 1px solid black;
 			}
-
+			th, td{
+	            border-spacing: 0;
+			    border: 1px solid black;
+			}
+			
+            .hide {
+                visibility: hidden;
+                border: none;
+            }
 			</style>
 
 		<body>
@@ -151,7 +157,7 @@ include '../../lib_php/conection.php';
 		</table>
 			<p>&nbsp;</p>
 
-			<table width="720" style="border: 1px solid black;">
+			<table width="720">
 			<tbody>
 				<tr>
 					<td width="85">
@@ -174,13 +180,13 @@ include '../../lib_php/conection.php';
 			$texto_pdf = $texto_pdf.$_SESSION['table'];
 				
 			$texto_pdf = $texto_pdf.'<tr>
-			<td width="85">
+			<td class="hide" width="85">
 			&nbsp;
 			</td>
-			<td width="381">
+			<td class="hide" width="381">
 			&nbsp;
 			</td>
-			<td width="78">
+			<td class="hide" width="78">
 			&nbsp;
 			</td>
 			<td width="90">

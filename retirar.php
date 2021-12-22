@@ -1,68 +1,56 @@
 <?php
+	
+	include 'lib_php/conection.php';
 
-header('refresh:5, url=retiro_efectivo.php');
+	function handleError($error){
+		echo "<script>alert('.$error.')
+		window.location.href='retiro_efectivo.php'</script>";
+		exit;
+	}
 
     //Se validan los datos
-    $valida = true;
     if(empty($_POST['origen'])){
-		echo "<b>No se especifico Cuenta de origen</b><br>";
-		$valida = false;
+		handleError('No se especificó Cuenta de origen');
 	}
 
 	if(empty($_POST['dinero'])){
-		echo "<b>No se especifico Cantidad a retirar</b><br>";
-		$valida = false;
+		handleError('No se especificó la cantidad a retirar');
 	}
 
 	if(empty($_POST['nip'])){
-		echo "<b>No se escribio clave NIP.</b><br>";
-		$valida = false;
+		handleError('No se escribió clave NIP');
 	}
-
-	if($valida == false){
-		exit();
-	}
-
-	//$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
-    $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb") or die("Error de conexion.");
 
 	$Pnip = $_POST['nip'];
-	$Pmonto = $_POST['dinero'];
-	$Pcuenta_origen; 
+	$Pmonto = $_POST['dinero']; 
 	$Pcuenta_origen = $_POST['origen'];
 	settype($Pmonto, "integer");
     $consulta = " ";
 
 	if($Pmonto > 10000){
-		echo "<h2> La cantidad a retirar supera el limite de retiro.</h2>";
-		$valida = false;
+		handleError('La cantidad a retirar supera el limite de retiro. (10,000)');
 	}
 
 	if($Pmonto <= 0 ){
-		echo "<h2> La cantidad para retirar debe ser mayor a 0.</h2>";
-		$valida = false;
-	}
-
-	if($valida == false){
-		exit();
+		handleError('La cantidad para retirar debe ser mayor a 0.');
 	}
 
     function revisar_nip($Pcuenta_origen, $Pnip){
         //hace conexion a la bd
-        global $conect, $consulta;
+        global $con, $consulta;
         //hace consulta de la cuenta
 		$sql = 'SELECT * FROM cat_cuentas WHERE no_cuenta = '.$Pcuenta_origen.' AND nip = '.$Pnip;
 		//returna el resultado de select
-        return $conect->query($sql);
+        return $con->query($sql);
     }
 
 	function revisar_dinero($Pcuenta_origen){
         //hace conexion a la bd
-        global $conect, $consulta;
+        global $con, $consulta;
         //hace consulta de la cuenta
 		$sql = 'SELECT * FROM cat_cuentas WHERE no_cuenta = '.$Pcuenta_origen;
 		//returna el resultado de select
-        return $conect->query($sql);
+        return $con->query($sql);
     }
 
 	//revisa que el nip sea correcto
@@ -70,30 +58,22 @@ header('refresh:5, url=retiro_efectivo.php');
 	$row = $resultado->fetch_assoc();
 	//si no se regresa fila de cuenta, algo es incorrecto.
 	if($row==NULL){
-		$valida = false;
-		echo "<h2>Se introdujo NIP incorrecto</h2>";
+		handleError('Se introdujo NIP incorrecto');
 	}
 
 	$resultado = revisar_dinero($Pcuenta_origen);
 	$row = $resultado->fetch_assoc();
 
 	if($row['saldo'] - $Pmonto < 0){
-		$valida = false;
-		echo "<h2> Se introdujo una suma mayor a la cantidad de la cuenta.</h2>";
+		handleError('Se introdujo una suma mayor a la cantidad de la cuenta.');
 	}
 
-	if($valida == true){
+	$stmt = mysqli_prepare($con, "CALL retiro(?, ?, @rowCount)");
+	mysqli_stmt_bind_param($stmt, 'si', $Pcuenta_origen, $Pmonto);
+	mysqli_stmt_execute($stmt);
+	
+	mysqli_close($con);
 
-		$stmt = mysqli_prepare($conect, "CALL retiro(?, ?, @rowCount)");
-		mysqli_stmt_bind_param($stmt, 'si', $Pcuenta_origen, $Pmonto);
-		mysqli_stmt_execute($stmt);
-
-		echo "<h2>Transaccion exitosa. Regresando a Dashboard</h2>";
-		
-		mysqli_close($conect);
-		
-		header('refresh:5, url=user_dashboard.php');
-
-		exit();
-	}
+	echo "<script>alert('Transaccion exitosa. Regresando a Dashboard')
+	window.location.href='user_dashboard.php'</script>";
 	

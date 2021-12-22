@@ -1,17 +1,18 @@
 <?php
-
+    
     session_start();
-    $link = "login.php";
 
     if(empty($_SESSION['iduser'])) {
 		header("Location: login.php?error=2");
 	}
 
+    function handleError($error){
+		echo "<script>alert('.$error.')
+		window.location.href='user_dashboard.php'</script>";
+		exit;
+	}
 
-    header('refresh:10, url=user_dashboard.php');
-
-    //$conect = mysqli_connect("localhost", "root", "", "bancoco") or die("Error de conexion.");
-    $conect = mysqli_connect("tektor.com.mx","tektorco_usrbank","f!H7#H0yI.vU","tektorco_bancocodb");
+    include 'lib_php/conection.php';
 
     $unico = false;
     $numero = "";
@@ -19,11 +20,11 @@
 
     function revisar_cuentas($Pid_cliente){
         //hace conexion a la bd
-        global $conect, $consulta;
+        global $con, $consulta;
         //hace consulta de la cuenta
-		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = '.$Pid_cliente;
+		$sql = 'SELECT * FROM cat_cuentas WHERE id_cliente = "'.$Pid_cliente.'"';
 		//returna el resultado de select
-        return $conect->query($sql);
+        return $con->query($sql);
     }
 
     //Se revisan la cantidad de cuentas para que el usuario solo pueda tener 4
@@ -36,22 +37,21 @@
         }
     }
     if($cont_cuentas >= 4){
-        echo "<h2>Solo se pueden tener 4 cuentas activas.</h2>";
-        exit();
+        handleError('Solo se pueden tener 4 cuentas activas.');
     }
 
     function revisar_unico($numero){
         //hace conexion a la bd
-        global $conect, $consulta;
+        global $con, $consulta;
         //hace consulta de la cuenta
 		$sql = 'SELECT * FROM cat_cuentas WHERE no_cuenta = '.$numero;
 		//returna el resultado de select
-        return $conect->query($sql);
+        return $con->query($sql);
     }
 
     while ($unico == false){
         //crea el numero random
-        $numero = random_int(10000000,99999999);
+        $numero = rand(10000000,99999999);
         //revisa que el numero no se haya escrito antes
         $busqueda = revisar_unico($numero);
         $row = $busqueda->fetch_assoc();
@@ -64,19 +64,18 @@
     $Pno_cuenta = $numero;
     $Pid_cliente = $_SESSION["iduser"];
     //$Pid_cliente = 18;
-    $Pnip = random_int(1000, 9999);
+    $Pnip = rand(1000, 9999);
     $PoutRow = '';
 
-    echo ("Cuenta: ".$Pno_cuenta);
-    echo ("<br>NIP: ".$Pnip);
-
     //se suben los datos
-    $stmt = mysqli_prepare($conect, "CALL crear_cuenta(?, ?, ?, @rowCount)");
+    $stmt = mysqli_prepare($con, "CALL crear_cuenta(?, ?, ?, @rowCount)");
 	mysqli_stmt_bind_param($stmt, 'iss', $Pid_cliente, $Pno_cuenta, $Pnip);
 	mysqli_stmt_execute($stmt);
 
-    echo "<br><br><h2>Cuenta creada con exito.</h2>";
-
-    mysqli_close($conect);
+    $alertString = 'Cuenta creada con exito. \r\nCuenta: '.$Pno_cuenta.' \r\nNIP: '.$Pnip;
+    echo "<script>alert(\"$alertString\")
+    window.location.href='user_dashboard.php'</script>";
+    
+    mysqli_close($con);
 
 ?>
