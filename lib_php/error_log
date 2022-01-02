@@ -1,0 +1,5 @@
+[11-Dec-2021 16:40:11 UTC] PHP Notice:  Undefined variable: tabla in /home/tektorco/public_html/bancoco/lib_php/estCuentaTableScript.php on line 51
+[11-Dec-2021 16:47:39 UTC] PHP Parse error:  syntax error, unexpected '"), monto FROM movimientos WHE' (T_CONSTANT_ENCAPSED_STRING) in /home/tektorco/public_html/bancoco/lib_php/estCuentaTableScript.php on line 20
+[11-Dec-2021 16:47:41 UTC] PHP Parse error:  syntax error, unexpected '"), monto FROM movimientos WHE' (T_CONSTANT_ENCAPSED_STRING) in /home/tektorco/public_html/bancoco/lib_php/estCuentaTableScript.php on line 20
+[14-Dec-2021 14:41:06 UTC] PHP Notice:  Undefined index: usuario in /home/tektorco/public_html/bancoco/lib_php/auth_user.php on line 5
+[14-Dec-2021 14:41:06 UTC] PHP Notice:  Undefined index: contrasena in /home/tektorco/public_html/bancoco/lib_php/auth_user.php on line 6

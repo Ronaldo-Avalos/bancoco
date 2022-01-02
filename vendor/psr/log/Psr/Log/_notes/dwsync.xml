@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="AbstractLogger.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="InvalidArgumentException.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="LoggerAwareInterface.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="LoggerAwareTrait.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="LoggerInterface.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="LoggerTrait.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="LogLevel.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+<file name="NullLogger.php" server="C:/xampp/htdocs/N_Ingreso/" local="131683028960000000" remote="131683064960000000" Dst="1" />
+</dwsync>
